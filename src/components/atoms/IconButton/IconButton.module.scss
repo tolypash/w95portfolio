@@ -1,0 +1,25 @@
+@import "/src/constants/colors";
+
+.IconButton {
+    background-color: $background;
+    border-top: 2px solid #eeeeee;
+    border-left: 2px solid #eeeeee;
+    border-bottom: 2px solid #131313;
+    border-right: 2px solid #131313;
+    display: inline-flex;
+    width: 18px;
+    height: 15px;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.IconButton:active {
+    border: 2px solid $background;
+}

@@ -1,0 +1,20 @@
+.Icon {
+    width: 65px;
+}
+
+.SideContainer {
+    width: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.MainContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

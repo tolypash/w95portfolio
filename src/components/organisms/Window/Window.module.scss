@@ -1,0 +1,29 @@
+@import "/src/constants/colors";
+
+.Window {
+    min-width: 50px;
+    min-height: 100px;
+    background-color: $background;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    border-top: 2px solid #f1f1f1;
+    border-left: 2px solid #fbfbfb;
+    border-right: 2px solid #3b3b3b;
+    border-bottom: 2px solid #000000;
+}
+
+.TopBar {
+    background-color: $highlight;
+    height: 24px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    padding-right: 6px;
+    box-sizing: border-box;
+}

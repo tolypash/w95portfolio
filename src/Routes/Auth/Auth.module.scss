@@ -1,0 +1,24 @@
+@import "/src/constants/colors";
+@import "/src/constants/styles";
+
+label {
+    width: 80px;
+    display: inline-block;
+}
+
+.Container {
+    width: 100%;
+    height: 100%;
+    background-color: $blue;
+}
+
+.Icon {
+    width: 65px;
+}
+
+.SideContainer {
+    width: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

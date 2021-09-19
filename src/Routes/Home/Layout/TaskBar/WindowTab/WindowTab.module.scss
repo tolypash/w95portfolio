@@ -1,0 +1,28 @@
+@import "/src/constants/colors";
+
+.WindowTab {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    height: 100%;
+    cursor: pointer;
+    border-top: 2px solid #eeeeee;
+    border-left: 2px solid #eeeeee;
+    border-bottom: 2px solid #131313;
+    border-right: 2px solid #131313;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    margin: 0 2px;
+    padding: 0 6px;
+}
+
+.WindowTab:active,
+.WindowTab.selected {
+    border-top: 2px solid #131313;
+    border-left: 2px solid #131313;
+    border-bottom: 2px solid #eeeeee;
+    border-right: 2px solid #eeeeee;
+    background-color: $taskbarSelected;
+}

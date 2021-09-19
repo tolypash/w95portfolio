@@ -13,6 +13,7 @@
 }
 
 .Windows {
+    display: flex;
     flex: 1;
 }
 
@@ -34,6 +35,7 @@
 
 .Left {
     height: 100%;
+    padding-right: 10px;
 }
 
 .StartButton {

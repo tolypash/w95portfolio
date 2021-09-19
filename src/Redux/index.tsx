@@ -5,7 +5,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import windowsReducer, { Window } from './reducers/windows';
 
 export interface RootState {
-    windows: Window[];
+    windows: {
+        allWindows: Window[],
+        focused: {
+            id: string,
+            zIndex: number
+        }
+    };
 }
 
 const store = configureStore({

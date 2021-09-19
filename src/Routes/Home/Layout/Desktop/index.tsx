@@ -3,7 +3,14 @@ import React from 'react';
 import { Window } from '../../../../Redux/reducers/windows';
 
 interface IProps {
-    windows: Window[]
+    windows:
+    {
+        allWindows: Window[],
+        focused: {
+            id: string,
+            zIndex: number
+        }
+    }
 }
 
 const Desktop = (props: IProps) => {

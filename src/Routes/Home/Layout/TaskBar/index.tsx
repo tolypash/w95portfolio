@@ -2,6 +2,7 @@ import React from 'react';
 
 import StartBar from './StartBar';
 import Time from './Time';
+import WindowTab from './WindowTab';
 
 import styles from './TaskBar.module.scss'
 
@@ -10,13 +11,19 @@ import StartIcon from '../../../../assets/img/logo64.png'
 import { Window } from '../../../../Redux/reducers/windows';
 
 interface IProps {
-    windows: Window[]
+    windows: {
+        allWindows: Window[],
+        focused: {
+            id: string,
+            zIndex: number
+        }
+    }
 }
 
 const TaskBar = (props: IProps) => {
 
     const [startBarShown, setStartBarShown] = React.useState(false);
-    
+
     React.useEffect(() => {
         console.log(props.windows)
         setStartBarShown(false)
@@ -56,7 +63,7 @@ const TaskBar = (props: IProps) => {
                 </div>
             </div>
             <div className={styles.Windows}>
-
+                {props.windows.allWindows.map(window => <WindowTab {...window} />)}
             </div>
             <div className={styles.Right}>
                 <div className={styles.RightWrapper}>

@@ -14,10 +14,11 @@ const StartBar: React.FC = (props) => {
     const history = useHistory()
     const dispatch = useAppDispatch();
 
-    const run = (programSlug: string, overrideSingleInstance?: boolean) =>
+    const run = (name: string, programSlug: string, overrideSingleInstance?: boolean) =>
         dispatch({
             type: 'windows/open',
             payload: {
+                name: name,
                 slug: programSlug,
                 overrideSingleInstance: overrideSingleInstance
             }
@@ -31,19 +32,19 @@ const StartBar: React.FC = (props) => {
                 {
                     label: 'Notepad',
                     icon: NotepadIcon,
-                    onClick: () => run('notepad', true)
+                    onClick: () => run('Notepad', 'notepad', true)
                 },
                 {
                     label: 'Internet Explorer',
                     icon: IEIcon,
-                    onClick: () => run('ie')
+                    onClick: () => run('Internet Explorer', 'ie')
                 }
             ]
         },
         {
             label: 'Settings',
             icon: SettingsIcon,
-            onClick: () => run('settings')
+            onClick: () => run('Settings', 'settings')
         },
         {
             label: 'Log off...',
@@ -61,7 +62,7 @@ const StartBar: React.FC = (props) => {
                 </div>
             </div>
             <div className={styles.Main}>
-                {DATA.map((el, index: Number) =>
+                {DATA.map((el, index: number) =>
                     <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
                         <img src={el.icon} className={styles.RowIcon} alt='icon' />
                     </Row>)}
@@ -90,7 +91,7 @@ const Row: React.FC<{ label: string, options?: any, onClick?: Function }> = (pro
                 </span>
 
                 {focused && <div className={styles.RowExpandableOptions}>
-                    {props.options.map((el: any, index: Number) =>
+                    {props.options.map((el: any, index: number) =>
                         <Option key={`o_${el.label}_${index}`} label={el.label} onClick={el.onClick}>
                             <img src={el.icon} className={styles.OptionIcon} alt='icon' />
                         </Option>)}

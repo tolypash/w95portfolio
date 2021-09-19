@@ -1,0 +1,89 @@
+@import "/src/constants/colors";
+
+.StartBar {
+    position: absolute;
+    bottom: 38px;
+    left: 0px;
+    width: 225px;
+    background-color: $default;
+    display: flex;
+    border-top: 3px solid #e2e2e2;
+    border-left: 3px solid #e2e2e2;
+    border-bottom: 3px solid #1c1c1c;
+    border-right: 3px solid #1c1c1c;
+}
+
+.Main {
+    width: 100%;
+    padding-right: 4px;
+}
+
+.Left {
+    background-color: #827f80;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.LeftWin95 {
+    transform: rotate(270deg);
+    margin-bottom: 20px;
+}
+
+.LeftWin95 span {
+    font-size: 30px;
+}
+
+.Row {
+    width: 100%;
+    margin: 2px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    position: relative;
+}
+
+.Row:hover,.Option:hover {
+    background-color: $highlight;
+    color: #ffffff;
+}
+
+.RowIcon {
+    height: 60px;
+}
+
+.OptionIcon {
+    height: 26px;
+    margin-right: 8px;
+}
+
+.Divider {
+    width: 100%;
+    border-top: 2px solid #b3b3b3;
+    border-bottom: 2px solid #e2e2e2;
+    margin: 4px 0;
+}
+
+.RowExpandableOptions {
+    position: absolute;
+    width: 225px;
+    background-color: $default;
+    left: 100%;
+    top: -5px;
+    border-top: 3px solid #e2e2e2;
+    border-left: 3px solid #e2e2e2;
+    border-bottom: 3px solid #1c1c1c;
+    border-right: 3px solid #1c1c1c;
+}
+
+.Option {
+    display: flex;
+    align-items: center;
+    padding: 3px 8px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import { useAppDispatch } from '../../../../../Redux/hooks';
 
 import styles from './StartBar.module.scss';
 
@@ -9,8 +10,18 @@ import LogOffIcon from '../../../../../assets/icons/key_win-4.png';
 import NotepadIcon from '../../../../../assets/icons/notepad.png';
 import IEIcon from '../../../../../assets/icons/msie.png';
 
-const StartBar: React.FC<{ OpenProgram: Function }> = (props) => {
+const StartBar: React.FC = (props) => {
     const history = useHistory()
+    const dispatch = useAppDispatch();
+
+    const run = (programSlug: string, overrideSingleInstance?: boolean) =>
+        dispatch({
+            type: 'windows/open',
+            payload: {
+                slug: programSlug,
+                overrideSingleInstance: overrideSingleInstance
+            }
+        })
 
     const DATA = [
         {
@@ -20,19 +31,19 @@ const StartBar: React.FC<{ OpenProgram: Function }> = (props) => {
                 {
                     label: 'Notepad',
                     icon: NotepadIcon,
-                    onClick: () => props.OpenProgram('notepad')
+                    onClick: () => run('notepad', true)
                 },
                 {
                     label: 'Internet Explorer',
                     icon: IEIcon,
-                    onclick: () => props.OpenProgram('msie')
+                    onClick: () => run('ie')
                 }
             ]
         },
         {
             label: 'Settings',
             icon: SettingsIcon,
-            onClick: () => props.OpenProgram('settings')
+            onClick: () => run('settings')
         },
         {
             label: 'Log off...',
@@ -50,9 +61,10 @@ const StartBar: React.FC<{ OpenProgram: Function }> = (props) => {
                 </div>
             </div>
             <div className={styles.Main}>
-                {DATA.map(el => <Row label={el.label} options={el.options} onClick={el.onClick}>
-                    <img src={el.icon} className={styles.RowIcon} alt='icon' />
-                </Row>)}
+                {DATA.map((el, index: Number) =>
+                    <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
+                        <img src={el.icon} className={styles.RowIcon} alt='icon' />
+                    </Row>)}
             </div>
         </div>
     )
@@ -78,9 +90,10 @@ const Row: React.FC<{ label: string, options?: any, onClick?: Function }> = (pro
                 </span>
 
                 {focused && <div className={styles.RowExpandableOptions}>
-                    {props.options.map((el: any) => <Option label={el.label} onClick={el.onClick}>
-                        <img src={el.icon} className={styles.OptionIcon} alt='icon' />
-                    </Option>)}
+                    {props.options.map((el: any, index: Number) =>
+                        <Option key={`o_${el.label}_${index}`} label={el.label} onClick={el.onClick}>
+                            <img src={el.icon} className={styles.OptionIcon} alt='icon' />
+                        </Option>)}
                 </div>}
             </>}
         </div>

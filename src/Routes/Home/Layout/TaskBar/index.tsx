@@ -7,9 +7,20 @@ import styles from './TaskBar.module.scss'
 
 import StartIcon from '../../../../assets/img/logo64.png'
 
-const TaskBar = () => {
+import { Window } from '../../../../Redux/reducers/windows';
+
+interface IProps {
+    windows: Window[]
+}
+
+const TaskBar = (props: IProps) => {
 
     const [startBarShown, setStartBarShown] = React.useState(false);
+    
+    React.useEffect(() => {
+        console.log(props.windows)
+        setStartBarShown(false)
+    }, [props.windows])
 
     React.useEffect(() => {
         window.addEventListener('keydown', onKeyDown)
@@ -17,8 +28,6 @@ const TaskBar = () => {
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [startBarShown])
-
-
 
     const onKeyDown = (e: KeyboardEvent) => {
         console.log(e.key)
@@ -36,7 +45,7 @@ const TaskBar = () => {
 
     return (
         <div className={styles.TaskBar}>
-            {startBarShown && <StartBar OpenProgram={() => {}} />}
+            {startBarShown && <StartBar />}
             <div className={styles.Left}>
                 <div
                     className={`${styles.StartButton} ${startBarShown ? styles.selected : ''}`}
@@ -47,7 +56,7 @@ const TaskBar = () => {
                 </div>
             </div>
             <div className={styles.Windows}>
-        
+
             </div>
             <div className={styles.Right}>
                 <div className={styles.RightWrapper}>

@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Desktop = () => {
+import { Window } from '../../../../Redux/reducers/windows';
+
+interface IProps {
+    windows: Window[]
+}
+
+const Desktop = (props: IProps) => {
+
     return (
         <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
 

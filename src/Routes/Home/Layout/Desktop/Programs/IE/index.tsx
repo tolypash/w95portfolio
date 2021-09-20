@@ -153,7 +153,7 @@ const InternetExplorerProgram = (props: WindowProps) => {
 const IconButton = (props: {
     label: string
 } & React.HTMLProps<HTMLDivElement>) => {
-    return (<div className={styles.IconButton} {...props}>
+    return (<div className={styles.IconButton + ' clickable'} {...props}>
         <div className={styles.Icon}>
             {props.children}
         </div>

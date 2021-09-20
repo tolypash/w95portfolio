@@ -46,7 +46,7 @@ export default function windowsReducer(state = initialState, action: any) {
                         ...state,
                         focused: {
                             id: allWindows[index].id,
-                            zIndex: (focused?.zIndex || 0) + 1
+                            zIndex: (focused?.zIndex || 2) + 1
                         }
                     }
                 }
@@ -61,13 +61,13 @@ export default function windowsReducer(state = initialState, action: any) {
                         name: name,
                         slug: slug,
                         openedAt: new Date().toLocaleDateString(),
-                        zIndex: (focused?.zIndex || 0) + 1,
+                        zIndex: (focused?.zIndex || 2) + 1,
                         minimized: false
                     }
                 ],
                 focused: {
                     id: id,
-                    zIndex: (focused?.zIndex || 0) + 1
+                    zIndex: (focused?.zIndex || 2) + 1
                 }
             }
         }

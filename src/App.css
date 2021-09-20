@@ -50,6 +50,18 @@ input[type="text"] {
   display: none !important;
 }
 
+.clickable {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.clickable:hover {
+  border-top: 2px solid #eeeeee;
+  border-left: 2px solid #eeeeee;
+  border-bottom: 2px solid #b3b3b3;
+  border-right: 2px solid #b3b3b3;
+}
+
 @font-face {
   font-family: "W95FA";
   src: local("W95FA"), url(./assets/fonts/w95fa.woff2) format("opentype");

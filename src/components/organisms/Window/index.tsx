@@ -6,9 +6,10 @@ import IconButton from '../../atoms/IconButton';
 import styles from './Window.module.scss'
 
 interface IProps {
-    draggable?: boolean,
     name: string,
     dismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
+    draggable?: boolean,
+    resizable?:boolean
 }
 
 const Window: React.FC<IProps> = (props) => {
@@ -17,7 +18,7 @@ const Window: React.FC<IProps> = (props) => {
         <Draggable
             handle='.handle'
         >
-            <div className={styles.Window}>
+            <div className={`${styles.Window} ${props.resizable ? styles.resize : ''}`}>
                 <div className={`${styles.TopBar} ${props.draggable ? 'handle drag' : ''}`}>
                     {props.name}
                     <div style={{ marginLeft: 'auto' }}>

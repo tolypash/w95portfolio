@@ -44,7 +44,7 @@ export default function windowsReducer(state = initialState, action: any) {
                 focused: { id: id, zIndex: 0 }
             }
         }
-        case 'windows/close': {
+        case 'windows/kill': {
             return {
                 ...state,
                 allWindows: [

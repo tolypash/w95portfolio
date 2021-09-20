@@ -21,7 +21,6 @@ interface IProps {
 }
 
 const TaskBar = (props: IProps) => {
-
     const [startBarShown, setStartBarShown] = React.useState(false);
 
     React.useEffect(() => {
@@ -37,7 +36,6 @@ const TaskBar = (props: IProps) => {
     }, [startBarShown])
 
     const onKeyDown = (e: KeyboardEvent) => {
-        console.log(e.key)
         switch (e.key) {
             case 'Escape':
                 if (startBarShown) {
@@ -45,8 +43,10 @@ const TaskBar = (props: IProps) => {
                 }
                 break;
             case 'Meta':
-                setStartBarShown(!startBarShown)
-                break;
+                if (e.composedPath().length <= 4) {
+                    setStartBarShown(!startBarShown)
+                    break;
+                }
         }
     }
 

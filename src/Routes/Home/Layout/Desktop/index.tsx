@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Window } from '../../../../Redux/reducers/windows';
 
+import ProgramSelector from './Programs';
+
 interface IProps {
     windows:
     {
@@ -17,7 +19,7 @@ const Desktop = (props: IProps) => {
 
     return (
         <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
-
+            {props.windows.allWindows.map(window => <ProgramSelector {...window} />)}
         </div>
     )
 }

@@ -5,6 +5,8 @@ import Window from '../../../../../../components/organisms/Window';
 
 import { Window as WindowProps } from '../../../../../../Redux/reducers/windows';
 
+import styles from './IE.module.scss';
+
 const InternetExplorerProgram = (props: WindowProps) => {
     const dispatch = useAppDispatch()
 
@@ -15,7 +17,13 @@ const InternetExplorerProgram = (props: WindowProps) => {
             draggable
             resizable
         >
+            <div className={styles.TopBar}>
 
+            </div>
+
+            <div className={styles.Actionbar}>
+            
+            </div>
         </Window>
     )
 }

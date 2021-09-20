@@ -19,7 +19,7 @@
 }
 
 .WindowTab:active,
-.WindowTab.selected {
+.WindowTab.focused {
     border-top: 2px solid #131313;
     border-left: 2px solid #131313;
     border-bottom: 2px solid #eeeeee;

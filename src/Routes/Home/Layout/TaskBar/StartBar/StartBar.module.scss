@@ -11,6 +11,7 @@
     border-left: 3px solid #e2e2e2;
     border-bottom: 3px solid #1c1c1c;
     border-right: 3px solid #1c1c1c;
+    z-index: 999999;
 }
 
 .Main {
@@ -61,13 +62,6 @@
 .OptionIcon {
     height: 26px;
     margin-right: 8px;
-}
-
-.Divider {
-    width: 100%;
-    border-top: 2px solid #b3b3b3;
-    border-bottom: 2px solid #e2e2e2;
-    margin: 4px 0;
 }
 
 .RowExpandableOptions {

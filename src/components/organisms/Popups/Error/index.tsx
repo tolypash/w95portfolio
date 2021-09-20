@@ -15,7 +15,7 @@ interface IProps {
 const ErrorPopup: React.FC<IProps> = (props) => {
 
     return (
-        <Window id='error' name='Error' dismiss={props.dismiss} draggable>
+        <Window id='error' name='Error' dismiss={props.dismiss} draggable zIndex={999}>
             <div style={{ display: 'flex', overflow: 'hidden', margin: 10 }}>
                 <div className={styles.SideContainer}>
                     <img src={ErrorIcon} className={styles.Icon} alt='error' />

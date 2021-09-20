@@ -63,7 +63,12 @@ const TaskBar = (props: IProps) => {
                 </div>
             </div>
             <div className={styles.Windows}>
-                {props.windows.allWindows.map(window => <WindowTab {...window} />)}
+                {props.windows.allWindows.map(window =>
+                    <WindowTab
+                        {...window}
+                        focused={window.id === props.windows.focused?.id}
+                    />
+                )}
             </div>
             <div className={styles.Right}>
                 <div className={styles.RightWrapper}>

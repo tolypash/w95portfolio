@@ -4,6 +4,8 @@ import { useAppDispatch } from '../../../../../Redux/hooks';
 
 import styles from './StartBar.module.scss';
 
+import Divider from '../../../../../components/ions/Divider';
+
 import ProgramsIcon from '../../../../../assets/icons/programs.png';
 import SettingsIcon from '../../../../../assets/icons/settings.png';
 import LogOffIcon from '../../../../../assets/icons/key_win-4.png';
@@ -47,6 +49,9 @@ const StartBar: React.FC = (props) => {
             onClick: () => run('Settings', 'settings')
         },
         {
+            divider: true
+        },
+        {
             label: 'Log off...',
             icon: LogOffIcon,
             onClick: () => history.push('/auth')
@@ -63,7 +68,7 @@ const StartBar: React.FC = (props) => {
             </div>
             <div className={styles.Main}>
                 {DATA.map((el, index: number) =>
-                    <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
+                    el.divider ? <Divider /> : <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
                         <img src={el.icon} className={styles.RowIcon} alt='icon' />
                     </Row>)}
             </div>
@@ -71,7 +76,7 @@ const StartBar: React.FC = (props) => {
     )
 }
 
-const Row: React.FC<{ label: string, options?: any, onClick?: Function }> = (props) => {
+const Row: React.FC<{ label?: string, options?: any, onClick?: Function }> = (props) => {
     const [focused, setFocused] = React.useState(false)
 
     return (
@@ -112,12 +117,6 @@ const Option: React.FC<{ label: string, options?: any, onClick?: Function }> = (
             {props.label}
         </div>
     </div>)
-}
-
-const Divider: React.FC = () => {
-    return (
-        <div className={styles.Divider} />
-    )
 }
 
 export default StartBar

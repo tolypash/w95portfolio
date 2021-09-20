@@ -7,16 +7,20 @@ import IconButton from '../../atoms/IconButton';
 
 import styles from './Window.module.scss'
 
-interface IProps {
+interface WindowProps {
     id: string,
     name: string,
-    minimized?: boolean,
+    zIndex: number,
+    minimized?: boolean
+}
+
+interface IProps {
     dismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
     draggable?: boolean,
     resizable?: boolean
 }
 
-const Window: React.FC<IProps> = (props) => {
+const Window: React.FC<WindowProps & IProps> = (props) => {
 
     const dispatch = useAppDispatch()
 
@@ -24,6 +28,7 @@ const Window: React.FC<IProps> = (props) => {
 
     const resize = (type: 'max' | 'free') => {
         if (sizeState === 'free' || type !== sizeState) {
+            dispatch({ type: 'windows/focus', payload: { id: props.id } })
             setSizeState(type)
             return;
         }
@@ -40,12 +45,15 @@ const Window: React.FC<IProps> = (props) => {
             handle='.handle'
             bounds='parent'
         >
-            <div className={`${styles.Window} ${props.resizable ? styles.resize : ''} ${styles[sizeState]}`}>
+            <div
+                className={`${styles.Window} ${props.resizable ? styles.resize : ''} ${styles[sizeState]}`}
+                style={{ zIndex: props.zIndex }}
+            >
                 <div className={`${styles.TopBar} ${props.draggable ? 'handle drag' : ''}`}>
                     {props.name}
                     <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
                         {props.resizable && <>
-                            <IconButton onClick={() => dispatch({ type: 'windows/edit', payload: { id: props.id, minimized: true } })}>
+                            <IconButton onClick={() => dispatch({ type: 'windows/minimize', payload: { id: props.id } })}>
                                 _
                             </IconButton>
 

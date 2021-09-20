@@ -19,7 +19,12 @@ const Desktop = (props: IProps) => {
 
     return (
         <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
-            {props.windows.allWindows.map(window => <ProgramSelector {...window} />)}
+            {props.windows.allWindows.map(window =>
+                <ProgramSelector
+                    key={`p_${window.id}`}
+                    {...window}
+                />
+            )}
         </div>
     )
 }

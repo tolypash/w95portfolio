@@ -5,21 +5,18 @@ import { Window } from '../../../../../Redux/reducers/windows';
 
 import styles from './WindowTab.module.scss';
 
-const WindowTab = (props: Window) => {
+const WindowTab = (props: Window & { focused: boolean }) => {
     const dispatch = useAppDispatch()
 
     const handleClick = () => {
+        let dispatchType = 'windows/focus'
 
-        let dispatchType = 'windows/edit';
-
-        const payload: any = {
-            id: props.id
+        if (props.focused && !props.minimized) {
+            dispatchType = 'windows/minimize'
         }
 
-        if (!props.minimized) {
-            dispatchType = 'windows/bringToFront'
-        } else {
-            payload.minimized = false
+        const payload: {id:string} = {
+            id: props.id
         }
 
         dispatch({
@@ -30,7 +27,7 @@ const WindowTab = (props: Window) => {
 
     return (
         <div
-            className={styles.WindowTab}
+            className={`${styles.WindowTab} ${props.focused ? styles.focused : ''}`}
             onClick={handleClick}
         >
             {props.name}

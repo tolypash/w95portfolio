@@ -46,6 +46,10 @@ input[type="text"] {
   cursor: grab;
 }
 
+.hidden {
+  display: none !important;
+}
+
 @font-face {
   font-family: "W95FA";
   src: local("W95FA"), url(./assets/fonts/w95fa.woff2) format("opentype");

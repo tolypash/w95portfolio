@@ -1,0 +1,87 @@
+@import "/src/constants/colors";
+
+iframe {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    flex: 1;
+}
+
+.TopBar {
+    display: flex;
+    padding-left: 10px;
+    border-top: 2px solid #b3b3b3;
+}
+
+.TopBar .right {
+    width: 50px;
+    padding: 4px 0;
+    padding-right: 2px;
+    background-color: $fontColor;
+    display: flex;
+    justify-content: center;
+    border-left: 2px solid #e2e2e2;
+}
+
+.TopBar .left {
+    flex: 1;
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    border-right: 2px solid #b3b3b3;
+}
+
+.TopBar .right img {
+    height: 24px;
+    align-self: center;
+}
+
+.ActionBar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.AddressBar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.IconButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 3px 10px;
+}
+
+.IconButton:hover {
+    border-top: 2px solid #eeeeee;
+    border-left: 2px solid #eeeeee;
+    border-bottom: 2px solid #b3b3b3;
+    border-right: 2px solid #b3b3b3;
+}
+
+.IconButton:hover .Icon {
+    filter: none;
+}   
+
+.IconButton .Icon {
+    font-size: 24px;
+    font-weight: bold;
+    height: 32px;
+    color: green;
+    filter: grayscale(100%);
+}
+
+.IconButton img {
+    height: 24px;
+}
+
+.IconButton .Label {
+    font-size: 20px;
+}

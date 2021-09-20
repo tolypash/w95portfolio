@@ -65,6 +65,7 @@ const TaskBar = (props: IProps) => {
             <div className={styles.Windows}>
                 {props.windows.allWindows.map(window =>
                     <WindowTab
+                        key={`Wtab_${window.id}`}
                         {...window}
                         focused={window.id === props.windows.focused?.id}
                     />

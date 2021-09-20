@@ -68,7 +68,7 @@ const StartBar: React.FC = (props) => {
             </div>
             <div className={styles.Main}>
                 {DATA.map((el, index: number) =>
-                    el.divider ? <Divider /> : <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
+                    el.divider ? <Divider key={`div_${index}`} /> : <Row key={`${el.label}_${index}`} label={el.label} options={el.options} onClick={el.onClick}>
                         <img src={el.icon} className={styles.RowIcon} alt='icon' />
                     </Row>)}
             </div>

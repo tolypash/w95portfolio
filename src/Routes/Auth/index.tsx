@@ -50,12 +50,12 @@ function Auth() {
                         <div style={{ paddingTop: 25 }}>
                             <div style={{ marginBottom: 10 }}>
                                 <label htmlFor='username'>User name: </label>
-                                <TextField id='username' onChange={(text: string) => username.current = text} />
+                                <TextField id='username' onChangeText={(text: string) => username.current = text} />
                             </div>
 
                             <div style={{ marginBottom: 10 }}>
                                 <label htmlFor='password'>Password: </label>
-                                <TextField id='password' onChange={(text: string) => password.current = text} type='password' />
+                                <TextField id='password' onChangeText={(text: string) => password.current = text} type='password' />
                             </div>
 
                         </div>

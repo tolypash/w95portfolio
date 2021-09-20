@@ -41,7 +41,6 @@ export default function windowsReducer(state = initialState, action: any) {
             if (!overrideSingleInstance) {
                 const index = allWindows.findIndex(window => window.slug === slug)
 
-                console.log(index)
                 if (index > -1) {
                     return {
                         ...state,

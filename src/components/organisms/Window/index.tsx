@@ -20,7 +20,7 @@ interface IProps {
     resizable?: boolean
 }
 
-const Window: React.FC<WindowProps & IProps> = (props) => {
+const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
 
     const dispatch = useAppDispatch()
 
@@ -36,18 +36,16 @@ const Window: React.FC<WindowProps & IProps> = (props) => {
         setSizeState('free')
     }
 
-    if (props.minimized) {
-        return null
-    }
-
     return (
         <Draggable
             handle='.handle'
             bounds='parent'
         >
             <div
-                className={`${styles.Window} ${props.resizable ? styles.resize : ''} ${styles[sizeState]}`}
-                style={{ zIndex: props.zIndex }}
+                className={`${styles.Window} 
+                ${props.resizable ? styles.resize : ''} 
+                ${styles[sizeState]} ${props.minimized ? 'hidden' : ''}`}
+                style={{ zIndex: props.zIndex, ...props.style }}
             >
                 <div className={`${styles.TopBar} ${props.draggable ? 'handle drag' : ''}`}>
                     {props.name}

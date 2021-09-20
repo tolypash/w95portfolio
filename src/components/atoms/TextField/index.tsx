@@ -3,18 +3,21 @@ import styles from './TextField.module.scss';
 
 interface IProps {
     id: string,
-    onChange: Function,
+    onChangeText: Function,
     type?: string
 }
 
-const TextField: React.FC<IProps> = (props) => {
+const TextField: React.FC<IProps & React.HTMLProps<HTMLInputElement>> = (props) => {
+
+    const { id, type, onChangeText, ...otherProps } = props
 
     return (
         <input
-            id={props.id}
-            type={props.type ? props.type : 'text'}
+            id={id}
+            type={type ? type : 'text'}
             className={styles.TextField}
-            onChange={(e) => props.onChange(e.target.value)}
+            onChange={(e) => props.onChangeText(e.target.value)}
+            {...otherProps}
         />
     )
 }

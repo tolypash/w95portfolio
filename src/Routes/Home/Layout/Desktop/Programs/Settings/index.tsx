@@ -9,11 +9,11 @@ const SettingsProgram = (props: WindowProps) => {
     const dispatch = useAppDispatch()
 
     return (
-        <Window 
-        name='Settings' 
-        dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })} 
-        draggable
-        resizable
+        <Window
+            {...props}
+            dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
+            draggable
+            resizable
         >
 
         </Window>

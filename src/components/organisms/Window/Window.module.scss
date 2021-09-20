@@ -19,6 +19,14 @@
     box-sizing: border-box;
 }
 
+.Window.max {
+    transform: none !important;
+    width: 100% !important;
+    height: calc(100% - 44px) !important;
+    top: 0;
+    left: 0;
+}
+
 .TopBar {
     background-color: $highlight;
     height: 24px;

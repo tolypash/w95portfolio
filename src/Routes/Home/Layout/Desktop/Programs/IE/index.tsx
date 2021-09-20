@@ -10,7 +10,7 @@ const InternetExplorerProgram = (props: WindowProps) => {
 
     return (
         <Window
-            name='Internet Explorer'
+            {...props}
             dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
             draggable
             resizable

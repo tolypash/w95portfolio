@@ -1,6 +1,13 @@
 import { makeRandomID } from "../../utils/common";
 
-export type Window = { id: string, name: string, slug: string, openedAt: string, zIndex: number };
+export type Window = {
+    id: string,
+    name: string,
+    slug: string,
+    openedAt: string,
+    zIndex: number,
+    minimized: boolean
+};
 
 const initialState: { allWindows: Window[], focused?: { zIndex: number, id: string } } = { allWindows: [] }
 
@@ -38,7 +45,8 @@ export default function windowsReducer(state = initialState, action: any) {
                         name: name,
                         slug: slug,
                         openedAt: new Date().toLocaleDateString(),
-                        zIndex: 0
+                        zIndex: 0,
+                        minimized: false
                     }
                 ],
                 focused: { id: id, zIndex: 0 }
@@ -51,6 +59,26 @@ export default function windowsReducer(state = initialState, action: any) {
                     ...state.allWindows.filter(window => window.id !== action.payload)
                 ]
             }
+        }
+        case 'windows/edit': {
+            const { id } = action.payload
+
+            const index = state.allWindows.findIndex(x => x.id === id)
+
+            if (index > -1) {
+                const temp = [...state.allWindows]
+
+                temp[index] = { ...temp[index], ...action.payload }
+
+                return {
+                    ...state,
+                    allWindows: [
+                        ...temp
+                    ]
+                }
+            }
+
+            return state;
         }
         case 'windows/clear': {
             return { allWindows: [] }

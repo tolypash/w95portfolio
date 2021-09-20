@@ -38,7 +38,7 @@ function Auth() {
 
     return (
         <div className={styles.Container}>
-            <Window name={'Welcome to Windows'}>
+            <Window id='welcome' name={'Welcome to Windows'}>
                 <form style={{ display: 'flex', overflow: 'hidden', margin: 10 }} onSubmit={LogIn}>
                     <div className={styles.SideContainer}>
                         <img src={KeyIcon} className={styles.Icon} alt='key' />

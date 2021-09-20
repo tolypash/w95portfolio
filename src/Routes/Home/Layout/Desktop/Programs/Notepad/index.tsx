@@ -12,13 +12,13 @@ const NotepadProgram = (props: WindowProps) => {
 
     return (
         <Window
-            name='Notepad'
+            {...props}
             dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
             draggable
             resizable
         >
             <div className={styles.Container}>
-            <textarea className={styles.TextArea} />
+                <textarea className={styles.TextArea} />
             </div>
         </Window>
     )

@@ -21,7 +21,7 @@ const NotepadProgram = (props: WindowProps) => {
                 <div className={styles.TopBar}>
                     <div
                         className={'clickable'}
-                        onClick={() => dispatch({ type: 'windows/open', payload: { name: props.name, slug: props.slug, overrideSingleInstance: true } })}
+                        onClick={() => dispatch({ type: 'windows/open', payload: { slug: props.slug } })}
                     >
                         New
                     </div>

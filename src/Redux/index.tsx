@@ -13,9 +13,7 @@ export interface RootState {
             zIndex: number
         }
     },
-    storage: {
-        [dirName: string]: Directory
-    }
+    storage: Directory
 }
 
 const store = configureStore({

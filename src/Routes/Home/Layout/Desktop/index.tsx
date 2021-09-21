@@ -7,6 +7,10 @@ import ProgramIcon from '../../../../components/atoms/ProgramIcon';
 
 import { Window } from '../../../../Redux/reducers/windows';
 
+import { isDirectory } from '../../../../Redux/reducers/storage';
+
+import { getDirectory, getFile } from '../../../../utils/storage';
+
 import { default as defaultPrograms } from '../../../../programs/default';
 
 interface IProps {
@@ -21,19 +25,25 @@ interface IProps {
 }
 
 const Desktop = (props: IProps) => {
-    const { desktop } = useAppSelector(state => state.storage);
+    const storage = useAppSelector(state => state.storage)
+
+    const desktop = getDirectory(storage, 'Desktop')
 
     return (
         <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
             <div>
-                {desktop.files?.map((file, index: number) =>
-                    <ProgramIcon
-                        key={`di_${file.slug}_${index}`}
-                        tabIndex={index}
-                        {...file}
-                        {...defaultPrograms[file.slug]}
-                    />
-                )}
+                {desktop?.children.map((file, index: number) => {
+                    if (!isDirectory(file)) {
+                        return <ProgramIcon
+                            key={`di_${file.slug}_${index}`}
+                            tabIndex={index}
+                            {...file}
+                            {...defaultPrograms[file.slug]}
+                        />
+                    } else {
+
+                    }
+                })}
             </div>
 
             {props.windows.allWindows.map(window =>

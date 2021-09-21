@@ -16,13 +16,12 @@ const StartBar: React.FC = (props) => {
     const history = useHistory()
     const dispatch = useAppDispatch();
 
-    const run = (name: string, programSlug: string, overrideSingleInstance?: boolean) =>
+    const run = (programSlug: string, ref?: string) =>
         dispatch({
             type: 'windows/open',
             payload: {
-                name: name,
                 slug: programSlug,
-                overrideSingleInstance: overrideSingleInstance
+                ref: ref
             }
         })
 
@@ -34,19 +33,19 @@ const StartBar: React.FC = (props) => {
                 {
                     label: 'Notepad',
                     icon: NotepadIcon,
-                    onClick: () => run('Notepad', 'notepad', true)
+                    onClick: () => run('notepad')
                 },
                 {
                     label: 'Internet Explorer',
                     icon: IEIcon,
-                    onClick: () => run('Internet Explorer', 'ie')
+                    onClick: () => run('ie')
                 }
             ]
         },
         {
             label: 'Settings',
             icon: SettingsIcon,
-            onClick: () => run('Settings', 'settings')
+            onClick: () => run('settings')
         },
         {
             divider: true

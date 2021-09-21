@@ -1,12 +1,15 @@
 import { makeRandomID } from "../../utils/common";
 
+import { default as defaultPrograms } from '../../programs/default';
+
 export type Window = {
     id: string,
     name: string,
     slug: string,
     openedAt: string,
     zIndex: number,
-    minimized: boolean
+    minimized: boolean,
+    ref?: string
 };
 
 const initialState: {
@@ -24,7 +27,8 @@ export default function windowsReducer(state = initialState, action: any) {
 
     switch (action.type) {
         case 'windows/open': {
-            const { name, slug, overrideSingleInstance } = action.payload;
+            const { slug } = action.payload
+            const { name, overrideSingleInstance } = defaultPrograms[slug];
 
             let id = `${slug}-${makeRandomID(5)}`;
 

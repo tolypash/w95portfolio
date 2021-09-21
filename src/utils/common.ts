@@ -1,4 +1,4 @@
-export function makeRandomID(length:number) {
+export function makeRandomID(length: number) {
     const result = [];
     const characters = '0123456789';
     const charactersLength = characters.length;

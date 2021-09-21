@@ -3,6 +3,7 @@ import React from 'react';
 import NotepadProgram from './Notepad';
 import SettingsProgram from './Settings';
 import InternetExplorerProgram from './IE';
+import ExecutableProgram from './Executable';
 
 import { Window } from '../Redux/reducers/windows';
 
@@ -14,6 +15,8 @@ export default function ProgramSelector(props:Window) {
             return <SettingsProgram {...props} />
         case 'ie':
             return <InternetExplorerProgram {...props} />
+        case 'exe':
+            return <ExecutableProgram {...props} />
     }
 
     return null

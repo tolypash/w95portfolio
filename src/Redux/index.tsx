@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit'
 
 import windowsReducer, { Window } from './reducers/windows';
+import storageReducer, { Directory } from './reducers/storage';
 
 export interface RootState {
     windows: {
@@ -11,13 +12,17 @@ export interface RootState {
             id: string,
             zIndex: number
         }
-    };
+    },
+    storage: {
+        [dirName: string]: Directory
+    }
 }
 
 const store = configureStore({
     reducer: {
-        windows: windowsReducer
-    },
+        windows: windowsReducer,
+        storage: storageReducer
+    }
 })
 
 const ReduxProvider: React.FC = props => {

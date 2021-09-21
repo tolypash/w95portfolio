@@ -6,6 +6,7 @@ iframe {
     padding: 0;
     border: none;
     flex: 1;
+    background-color: #ffffff;
 }
 
 .TopBar {
@@ -30,6 +31,13 @@ iframe {
     min-height: 100%;
     align-items: center;
     border-right: 2px solid #b3b3b3;
+}
+
+.TopBar .left div {
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
 }
 
 .TopBar .right img {
@@ -59,7 +67,7 @@ iframe {
 
 .IconButton:hover .Icon {
     filter: none;
-}   
+}
 
 .IconButton .Icon {
     font-size: 24px;

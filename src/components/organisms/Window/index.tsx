@@ -21,7 +21,6 @@ interface IProps {
 }
 
 const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
-
     const dispatch = useAppDispatch()
 
     const [sizeState, setSizeState] = React.useState('free')
@@ -40,6 +39,9 @@ const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> =
         <Draggable
             handle='.handle'
             bounds='parent'
+            onMouseDown={() => {
+                dispatch({ type: 'windows/focus', payload: { id: props.id } })
+            }}
         >
             <div
                 className={`${styles.Window} 

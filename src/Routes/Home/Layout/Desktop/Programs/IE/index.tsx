@@ -83,7 +83,9 @@ const InternetExplorerProgram = (props: WindowProps) => {
         >
             <div className={styles.TopBar}>
                 <div className={styles.left}>
-                    File
+                    {/* <div className={'clickable'}>
+                        File
+                    </div> */}
                 </div>
 
                 <div className={styles.right}>

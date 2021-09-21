@@ -128,7 +128,7 @@ export default function windowsReducer(state = initialState, action: any) {
                 ...state,
                 focused: {
                     id: id,
-                    zIndex: zIndex
+                    zIndex: zIndex + 1
                 },
                 allWindows: temp
             }

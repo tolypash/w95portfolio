@@ -6,13 +6,19 @@ import AboutMeProgram from '../../programs/Executable/default/aboutme';
 interface IType {
     name: string,
     createdAt?: string,
-    data?: any
+    sdata?: {
+        name?: string,
+        icon?:string,
+        overrideSingleInstance?: boolean,
+        extension?: string,
+        [x: string]: any
+    }
 }
 
 export interface Directory extends IType {
     type: 'dir',
     children: Array<File | Directory>,
-};
+}
 
 export interface File extends IType {
     type: 'file',
@@ -47,7 +53,7 @@ const initialState: Directory = {
             type: 'file',
             name: 'About Me',
             slug: 'exe',
-            data: {
+            sdata: {
                 name: 'About Me',
                 icon: AboutMeIcon,
                 run: AboutMeProgram

@@ -5,16 +5,10 @@ import styles from './ProgramIcon.module.scss';
 
 import { File } from '../../../Redux/reducers/storage';
 
-interface IProps {
-    name: string,
-    icon: string,
-    overrideSingleInstance?: boolean
-}
-
-const ProgramIcon = (props: File & IProps & React.HTMLProps<HTMLDivElement>) => {
+const ProgramIcon = (props: React.HTMLProps<HTMLDivElement> & File) => {
     const dispatch = useAppDispatch()
 
-    const { icon, name, ...otherProps } = props
+    const { slug, data = {}, ...otherProps } = props
 
     return (
         <div
@@ -24,14 +18,13 @@ const ProgramIcon = (props: File & IProps & React.HTMLProps<HTMLDivElement>) => 
                 dispatch({
                     type: 'windows/open',
                     payload: {
-                        name: props.name,
                         slug: props.slug,
-                        overrideSingleInstance: props.overrideSingleInstance
+                        ...data
                     }
                 })
             }}
         >
-            <img src={props.icon} />
+            <img src={props.sdata?.icon} />
             <br />
             <span>{props.name}</span>
         </div>

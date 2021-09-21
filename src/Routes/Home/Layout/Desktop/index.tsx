@@ -9,7 +9,7 @@ import { Window } from '../../../../Redux/reducers/windows';
 
 import { isDirectory } from '../../../../Redux/reducers/storage';
 
-import { getDirectory, getFile } from '../../../../utils/storage';
+import { getDirectory } from '../../../../utils/storage';
 
 import { default as defaultPrograms } from '../../../../programs/default';
 
@@ -38,7 +38,7 @@ const Desktop = (props: IProps) => {
                             key={`di_${file.slug}_${index}`}
                             tabIndex={index}
                             {...file}
-                            {...defaultPrograms[file.slug]}
+                            sdata={defaultPrograms[file.slug]}
                         />
                     } else {
 

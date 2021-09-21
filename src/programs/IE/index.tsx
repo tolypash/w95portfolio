@@ -1,18 +1,18 @@
 import React from 'react';
-import { useAppDispatch } from '../../../../../../Redux/hooks';
+import { useAppDispatch } from '../../Redux/hooks';
 
-import Window from '../../../../../../components/organisms/Window';
+import Window from '../../components/organisms/Window';
 
-import { Window as WindowProps } from '../../../../../../Redux/reducers/windows';
+import { Window as WindowProps } from '../../Redux/reducers/windows';
 
-import Divider from '../../../../../../components/ions/Divider';
-import TextField from '../../../../../../components/atoms/TextField';
+import Divider from '../../components/ions/Divider';
+import TextField from '../../components/atoms/TextField';
 
-import IEIcon from '../../../../../../assets/icons/msie1-1.png';
-import StopIcon from '../../../../../../assets/icons/stop.png';
-import RefreshIcon from '../../../../../../assets/icons/refresh.png';
-import HomeIcon from '../../../../../../assets/icons/homepage-0.png';
-import SearchIcon from '../../../../../../assets/icons/search_web.png';
+import IEIcon from '../../assets/icons/msie1-1.png';
+import StopIcon from '../../assets/icons/stop.png';
+import RefreshIcon from '../../assets/icons/refresh.png';
+import HomeIcon from '../../assets/icons/homepage-0.png';
+import SearchIcon from '../../assets/icons/search_web.png';
 
 import styles from './IE.module.scss';
 

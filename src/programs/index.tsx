@@ -4,7 +4,7 @@ import NotepadProgram from './Notepad';
 import SettingsProgram from './Settings';
 import InternetExplorerProgram from './IE';
 
-import { Window } from '../../../../../Redux/reducers/windows';
+import { Window } from '../Redux/reducers/windows';
 
 export default function ProgramSelector(props:Window) {
     switch (props.slug) {

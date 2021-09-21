@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useAppSelector } from '../../../../Redux/hooks';
-import ProgramSelector from './Programs';
+import ProgramSelector from '../../../../programs';
 
 import ProgramIcon from '../../../../components/atoms/ProgramIcon';
 
 import { Window } from '../../../../Redux/reducers/windows';
 
-import { default as defaultPrograms } from '../../../../defaultPrograms';
+import { default as defaultPrograms } from '../../../../programs/default';
 
 interface IProps {
     windows:

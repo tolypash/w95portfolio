@@ -16,7 +16,8 @@ const initialState: {
     desktop: {
         files: [
             { slug: 'ie' },
-            { slug: 'notepad' }
+            { slug: 'notepad' },
+            { slug: 'exe' }
         ]
     }
 }

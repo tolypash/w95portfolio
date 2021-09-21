@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAppDispatch } from '../../../../../../Redux/hooks';
+import { useAppDispatch } from '../../Redux/hooks';
 
-import Window from '../../../../../../components/organisms/Window';
+import Window from '../../components/organisms/Window';
 
-import { Window as WindowProps } from '../../../../../../Redux/reducers/windows';
+import { Window as WindowProps } from '../../Redux/reducers/windows';
 
 const SettingsProgram = (props: WindowProps) => {
     const dispatch = useAppDispatch()

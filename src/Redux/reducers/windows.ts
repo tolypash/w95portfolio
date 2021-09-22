@@ -2,7 +2,7 @@ import { makeRandomID } from "../../utils/common";
 
 import { default as defaultPrograms } from '../../programs/default';
 
-export type Window = {
+export interface Window {
     id: string,
     name: string,
     slug: string,

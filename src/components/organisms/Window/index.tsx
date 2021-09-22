@@ -11,7 +11,8 @@ interface WindowProps {
     id: string,
     name: string,
     zIndex: number,
-    minimized?: boolean
+    minimized?: boolean,
+    defaultSize?: 'free' | 'max'
 }
 
 interface IProps {
@@ -23,7 +24,7 @@ interface IProps {
 const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
     const dispatch = useAppDispatch()
 
-    const [sizeState, setSizeState] = React.useState('free')
+    const [sizeState, setSizeState] = React.useState(props.defaultSize || 'free')
 
     const resize = (type: 'max' | 'free') => {
         if (sizeState === 'free' || type !== sizeState) {

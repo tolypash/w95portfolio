@@ -1,6 +1,7 @@
 import IEIcon from '../assets/icons/msie.png'
 import NotepadIcon from '../assets/icons/notepad.png'
 import SettingsIcon from '../assets/icons/settings.png'
+import AboutMeIcon from '../assets/icons/aboutme.png';
 
 const programs: {
     [slug: string]: {
@@ -13,7 +14,6 @@ const programs: {
     ie: {
         name: 'Internet Explorer',
         icon: IEIcon,
-        overrideSingleInstance: false,
         extension: '.html'
     },
     notepad: {
@@ -24,8 +24,11 @@ const programs: {
     },
     settings: {
         name: 'Settings',
-        icon: SettingsIcon,
-        overrideSingleInstance: false,
+        icon: SettingsIcon
+    },
+    aboutme: {
+        name: 'About Me',
+        icon: AboutMeIcon
     }
 }
 

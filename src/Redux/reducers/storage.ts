@@ -1,8 +1,5 @@
 import { makeRandomID } from "../../utils/common";
 
-import AboutMeIcon from '../../assets/icons/aboutme.png';
-import AboutMeProgram from '../../programs/Executable/default/aboutme';
-
 interface IType {
     name: string,
     createdAt?: string,
@@ -52,12 +49,7 @@ const initialState: Directory = {
         {
             type: 'file',
             name: 'About Me',
-            slug: 'exe',
-            sdata: {
-                name: 'About Me',
-                icon: AboutMeIcon,
-                run: AboutMeProgram
-            }
+            slug: 'aboutme'
         },
         // TEST DATA
         {

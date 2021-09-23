@@ -1,0 +1,99 @@
+.Card {
+    position: relative;
+    flex-direction: row-reverse;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 25px;
+    transition-property: box-shadow, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    box-sizing: border-box;
+    color: #010101;
+}
+
+.Card * {
+    color: #010101;
+}
+
+.Card:hover {
+    -webkit-box-shadow: 0px 4px 21px 1px rgba(255, 255, 255, 0.47);
+    box-shadow: 0px 4px 21px 1px rgba(255, 255, 255, 0.47);
+    transform: translateY(-2px);
+}
+
+.Icon {
+    height: 125px;
+    width: 125px;
+    border-radius: 15px;
+}
+
+.Name {
+    display: block;
+    font-weight: bold;
+}
+
+.Tech {
+    color: #797575;
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+
+.Desc {
+    font-size: 0.9em;
+    color: #797575
+}
+
+.Desc * {
+    color: inherit;
+    font-size: inherit;
+}
+
+.Screenshots {
+    display: flex;
+    align-items: flex-start;
+    height: 150px;
+    margin-right: 0;
+    background-color: #fff;
+    border-radius: 25px;
+    transition: 0.3s all;
+    padding: 10px 5px;
+}
+
+.Screenshots:hover {
+    transform: scale(2);
+    transform-origin: bottom right;
+    margin-left: 0;
+}
+
+.Links:hover + .Screenshots {
+    transform: scale(none)
+}
+
+
+.Screenshots img {
+    margin: 0 10px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.Links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    z-index: 2;
+}
+
+.Links a {
+    stroke: #010101;
+    cursor: pointer;
+}
+
+.Links a svg {
+    stroke: inherit
+}
+

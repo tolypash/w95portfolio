@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+$bg: #010101;
+
+.Container {
+    background-color: $bg;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.Container * {
+    font-family: inherit;
+    color: inherit;
+}
+
+.primary {
+    color: #1cffff;
+}
+
+.secondary {
+    color: #797575;
+    font-size: 0.9rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.Main {
+    width: 80%;
+    background-color: $bg;
+    border-radius: 50px;
+    border: 2px solid #131313;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    width: 80%;
+    align-self: center;
+    padding-top: 60px;
+}
+
+.Head {
+    position: relative;
+    margin-top: 10px;
+    min-height: 400px;
+}
+
+.NameContainer {
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+}
+
+.NameContainer video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.NameContainer .name {
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 72px;
+    background-color: #010101;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    mix-blend-mode: multiply;
+}
+
+.ProfilePic {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    border: 5px solid transparent; /* space for the border */
+    background: center center;
+    z-index: 1;
+}
+
+.ProfilePic img {
+    width: 250px;
+    height: 250px;
+    border-radius: 125px;
+    object-fit: cover;
+    transition: 0.5s all;
+}
+
+.ProfilePic img:hover {
+    transform: scale(1.15) rotate(5deg) perspective(10px);
+}
+
+.ProfilePic:hover {
+    transition: 0.5s all;
+    --b: 5px; /* thickness of the border */
+    --c: #1cffff; /* color of the border */
+    --w: 20px; /* width of border */
+
+    background: linear-gradient(var(--c), var(--c)) top left, linear-gradient(var(--c), var(--c)) top left,
+        linear-gradient(var(--c), var(--c)) bottom right, linear-gradient(var(--c), var(--c)) bottom right;
+    background-size: var(--b) var(--w), var(--w) var(--b);
+    background-origin: border-box;
+    background-repeat: no-repeat;
+}
+
+.AboutMe {
+    
+}

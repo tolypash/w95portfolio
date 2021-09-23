@@ -1,0 +1,41 @@
+import React from 'react';
+
+import styles from './ProjectCard.module.scss'
+
+import { Globe } from 'react-feather';
+
+interface IProps {
+    logoSrc: string,
+    name: string,
+    tech: string[],
+    desc: () => JSX.Element,
+    screenshots?: string[],
+    webURL?: string
+}
+
+const ProjectCard: React.FC<IProps> = (props) => {
+
+    return <div className={styles.Card}>
+        <div className={styles.Links}>
+            {props.webURL && <a href={props.webURL} target='_blank'>
+                <Globe />
+            </a>}
+        </div>
+
+        <div className={styles.Screenshots}>
+            {props.screenshots?.map((url, index) => <img id={props.name + 'sc' + index} src={url} alt={'screenshot ' + index} />)}
+        </div>
+        <div style={{ marginLeft: 10, flex: 1 }}>
+            <span className={styles.Name}>{props.name.toUpperCase()}</span>
+            <span className={styles.Tech}>{props.tech.join(' | ')}</span>
+            <div className={styles.Desc}>
+                {props.desc()}
+            </div>
+        </div>
+        <div>
+            <img className={styles.Icon} src={props.logoSrc} />
+        </div>
+    </div>
+}
+
+export default ProjectCard

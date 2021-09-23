@@ -24,11 +24,12 @@ button:focus {
 }
 
 ::selection {
-  background: #000082; /* WebKit/Blink Browsers */
+  background: #000082;
   color: #ffffff;
 }
+
 ::-moz-selection {
-  background: #000082; /* Gecko Browsers */
+  background: #000082;
   color: #ffffff;
 }
 
@@ -67,6 +68,10 @@ input[type="text"] {
   border-left: 2px solid #eeeeee;
   border-bottom: 2px solid #b3b3b3;
   border-right: 2px solid #b3b3b3;
+}
+
+.semibold {
+  font-weight: 600;
 }
 
 @font-face {

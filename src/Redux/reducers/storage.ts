@@ -1,5 +1,3 @@
-import { makeRandomID } from "../../utils/common";
-
 interface IType {
     name: string,
     createdAt?: string,

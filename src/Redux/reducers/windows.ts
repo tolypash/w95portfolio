@@ -45,9 +45,14 @@ export default function windowsReducer(state = initialState, action: any) {
             if (!overrideSingleInstance) {
                 const index = allWindows.findIndex(window => window.slug === slug)
 
+                const temp = [...allWindows]
+
+                temp[index] = { ...temp[index], minimized: false }
+
                 if (index > -1) {
                     return {
                         ...state,
+                        allWindows: temp,
                         focused: {
                             id: allWindows[index].id,
                             zIndex: (focused?.zIndex || 2) + 1
@@ -109,6 +114,10 @@ export default function windowsReducer(state = initialState, action: any) {
             const index = allWindows.findIndex(x => x.id === id);
 
             let zIndex: number = 1;
+
+            if (!allWindows[index]) {
+                return state;
+            }
 
             zIndex = allWindows[index].zIndex
 

@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 $bg: #010101;
+$primaryColor: #1cffff;
+$secondaryColor: #797575;
 
 .Container {
     background-color: $bg;
     width: 100%;
     height: 100%;
-    color: white;
     font-family: "Poppins", sans-serif;
     position: relative;
     overflow-y: scroll;
@@ -14,23 +15,33 @@ $bg: #010101;
 
 .Container * {
     font-family: inherit;
-    color: inherit;
+    color: white;
 }
 
 .primary {
-    color: #1cffff;
+    color: $primaryColor;
 }
 
 .secondary {
-    color: #797575;
+    color: $secondaryColor;
     font-size: 0.9rem;
 }
 
-h2 {
+h2,
+h3 {
     margin: 0;
     font-size: 1.6rem;
     line-height: 1;
     margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.tiny {
+    font-size: 0.6em;
+    color: $secondaryColor;
 }
 
 .Main {
@@ -41,12 +52,14 @@ h2 {
     margin: 10vh auto;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 section {
     width: 80%;
     align-self: center;
     padding-top: 60px;
+    color: white;
 }
 
 .Head {
@@ -73,7 +86,7 @@ section {
     font-size: 72px;
     font-weight: bold;
     line-height: 72px;
-    background-color: #010101;
+    background-color: $bg;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     mix-blend-mode: multiply;
 }
@@ -112,6 +125,30 @@ section {
     background-repeat: no-repeat;
 }
 
-.AboutMe {
+.Contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 50px;
+
+    a {
+        text-decoration: none;
+    }
+
+    a h3 {
+        transition: 0.5s all;
+        text-decoration: none;
+    }
     
+    a:hover h3 {
+        color: $primaryColor !important;
+    }
+}
+
+.Socials {
+    display: flex;
+    align-items: center;
+    gap: 15px
 }

@@ -34,21 +34,22 @@
 .Name {
     display: block;
     font-weight: bold;
+    color: #010101 !important;
 }
 
 .Tech {
-    color: #797575;
+    color: #797575 !important;
     font-weight: lighter;
     font-size: 0.9em;
 }
 
 .Desc {
     font-size: 0.9em;
-    color: #797575
+    color: #797575 !important;
 }
 
 .Desc * {
-    color: inherit;
+    color: #797575 !important;
     font-size: inherit;
 }
 
@@ -78,6 +79,10 @@
     margin: 0 10px;
     height: 100%;
     border-radius: 10px;
+    min-width: 70px;
+    background-color: #F2F2F2;
+    font-size: 0.6em;
+    color: gray;
 }
 
 .Links {
@@ -94,6 +99,6 @@
 }
 
 .Links a svg {
-    stroke: inherit
+    stroke: inherit;
 }
 

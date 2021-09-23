@@ -1,13 +1,17 @@
-import React, { UIEvent } from 'react';
+import React from 'react';
 
 import { useAppDispatch } from '../../Redux/hooks';
 
 import Window from '../../components/organisms/Window';
 
-import { Window as WindowProps } from '../../Redux/reducers/windows';
+import ProjectCard from './components/cards/Project';
+import GlowIcon from './components/GlowIcon';
 
 import styles from './AboutMe.module.scss'
-import ProjectCard from './components/cards/Project';
+
+import { Window as WindowProps } from '../../Redux/reducers/windows';
+
+import { Linkedin, GitHub, Instagram } from 'react-feather';
 
 import SallyLogo from '../../assets/img/projects/sally/icon.png';
 
@@ -76,9 +80,10 @@ const AboutMeProgram = (props: WindowProps) => {
                         </div>
                     </section>
 
-                    <section className={styles.Projects}>
+                    <section>
                         <span className={styles.secondary}>FEATURED PROJECTS</span>
                         <h2>My proudest work 😋</h2>
+
                         <ProjectCard
                             logoSrc={SallyLogo}
                             name='Sally'
@@ -93,15 +98,15 @@ const AboutMeProgram = (props: WindowProps) => {
                                 2 mobile apps, 2 web apps, landing page
                                 <br />
                                 <b>Integrations: </b>
-                                <a href='https://stripe.com/' target='_blank'>Stripe</a>,
+                                <a href='https://stripe.com/' target='_blank' rel='noreferrer'>Stripe</a>,
                                 {' '}
-                                <a href='https://www.jcc.com.cy/' target='_blank'>JCC</a>,
+                                <a href='https://www.jcc.com.cy/' target='_blank' rel='noreferrer'>JCC</a>,
                                 {' '}
-                                <a href='https://www.ncr.com/restaurants/aloha-pos' target='_blank'>NCR Aloha POS</a>,
+                                <a href='https://www.ncr.com/restaurants/aloha-pos' target='_blank' rel='noreferrer'>NCR Aloha POS</a>,
                                 {' '}
-                                <a href='https://www.oracle.com/industries/micros/' target='_blank'>Oracle Micros POS</a>,
+                                <a href='https://www.oracle.com/industries/micros/' target='_blank' rel='noreferrer'>Oracle Micros POS</a>,
                                 {' '}
-                                <a href='https://www.softechltd.com/' target='_blank'>Gladius POS</a>,
+                                <a href='https://www.softechltd.com/' target='_blank' rel='noreferrer'>Gladius POS</a>,
                             </>}
                             screenshots={[
                                 SallySC1,
@@ -143,12 +148,52 @@ const AboutMeProgram = (props: WindowProps) => {
                             ]}
                         />
 
-                        <h2>🛠️  Also multiple API integrations (for example, Wolt {'<->'} NCR Aloha POS)</h2>
+                        <h2>🛠️  API integrations</h2>
+                        <ul>
+                            <li> <a href='https://wolt.com/' target='_blank' rel='noreferrer'>Wolt</a> {'<->'} NCR Aloha POS</li>
+                        </ul>
                     </section>
 
-                    <section className={styles.AboutMe}>
-                    <span className={styles.secondary}>ABOUT ME</span>
+                    <section>
+                        <span className={styles.secondary}>ABOUT ME</span>
                         <h2>Let's get to know me, shall we?</h2>
+
+                        <p>I enjoy creating apps with sensational user experiences and handling the backend in the meantime 😛<br />
+                            I am self taught and have been coding since I was 16 (I'm 19 now) <span className={styles.tiny}>P.S. the 20s scare me 👀</span></p>
+
+                        <p>Languages I know: <span className={styles.primary}>JavaScript (TypeScript, React, React Native, Node.js), PHP, Visual Basic</span></p>
+
+                        <p>I'm half Russian, half German, born in Germany but raised in beautiful Cyprus.<br />
+                            I speak English, Greek and working on my Russian :3</p>
+                    </section>
+
+                    <section>
+                        <span className={styles.secondary}>CONTACT</span>
+                        <h2>I'm always down for a chat 😄</h2>
+
+                        <div className={styles.Contact}>
+                            <a href='mailto:anatoly@sally.app'>
+                                <h3>anatoly@sally.app</h3>
+                            </a>
+
+                            <a href='tel:+35796338010'>
+                                <h3>+357 96338010</h3>
+                            </a>
+
+                            <div className={styles.Socials}>
+                                <GlowIcon link='https://www.linkedin.com/in/tolypash'>
+                                    <Linkedin size={30} />
+                                </GlowIcon>
+
+                                <GlowIcon link='https://github.com/tolypash'>
+                                    <GitHub size={30} />
+                                </GlowIcon>
+
+                                <GlowIcon link='https://instagram.com/tolypash'>
+                                    <Instagram size={30} />
+                                </GlowIcon>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

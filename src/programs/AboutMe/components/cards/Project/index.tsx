@@ -17,13 +17,13 @@ const ProjectCard: React.FC<IProps> = (props) => {
 
     return <div className={styles.Card}>
         <div className={styles.Links}>
-            {props.webURL && <a href={props.webURL} target='_blank'>
+            {props.webURL && <a href={props.webURL} target='_blank' rel='noreferrer'>
                 <Globe />
             </a>}
         </div>
 
         <div className={styles.Screenshots}>
-            {props.screenshots?.map((url, index) => <img id={props.name + 'sc' + index} src={url} alt={'screenshot ' + index} />)}
+            {props.screenshots?.map((url, index) => <img id={props.name + 'sc' + index} src={url} alt={'sc' + index} />)}
         </div>
         <div style={{ marginLeft: 10, flex: 1 }}>
             <span className={styles.Name}>{props.name.toUpperCase()}</span>

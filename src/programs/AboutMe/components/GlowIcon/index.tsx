@@ -1,11 +1,11 @@
 import styles from './GlowIcon.module.scss';
 
-import { Globe } from 'react-feather';
-
-const GlowIcon = (props:any) => {
+const GlowIcon = (props: any) => {
 
     return <div className={styles.GlowIcon}>
-        <Globe size={30} />
+        <a href={props.link} target='_blank' rel='noreferrer'>
+            {props.children}
+        </a>
     </div>
 }
 

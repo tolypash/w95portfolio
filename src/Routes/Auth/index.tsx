@@ -65,7 +65,7 @@ function Auth() {
 
                     <div className={styles.SideContainer}>
                         <Button onClick={LogIn} type='submit'>OK</Button>
-                        <Button onClick={() => { }}>Cancel</Button>
+                        <Button onClick={() => { }} type='button'>Cancel</Button>
                     </div>
                 </form>
             </Window>

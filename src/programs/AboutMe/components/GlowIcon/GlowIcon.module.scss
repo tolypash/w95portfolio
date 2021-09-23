@@ -7,7 +7,7 @@ $primaryColor: #1cffff;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #444444;
+        background: #1b1b1b;
         border-radius: 50%;
         font-size: 30px;
         color: #797575;
@@ -17,6 +17,7 @@ $primaryColor: #1cffff;
         svg {
             padding-bottom: 3px;
             stroke: $primaryColor;
+            transition: 3.5s all ease-out;
         }
     }
 
@@ -38,6 +39,12 @@ $primaryColor: #1cffff;
         color: $primaryColor;
         box-shadow: 0 0 15px $primaryColor;
         text-shadow: 0 0 10px $primaryColor;
-        border: 3px solid $primaryColor
+        border: 3px solid $primaryColor;
+    }
+
+    a:hover svg {
+        -webkit-filter: drop-shadow(0 0 10px $primaryColor);
+        filter: drop-shadow(0 0 10px $primaryColor);
+        transition: 0.4s all;
     }
 }

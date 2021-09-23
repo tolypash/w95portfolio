@@ -1,5 +1,6 @@
 {
   "name": "w95portfolio",
+  "homepage": "https://tolypash.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

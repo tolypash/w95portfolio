@@ -6,12 +6,14 @@ import Window from '../../components/organisms/Window';
 
 import ProjectCard from './components/cards/Project';
 import GlowIcon from './components/GlowIcon';
+import { Linkedin, GitHub, Instagram } from 'react-feather';
+
+import Particles from 'react-particles-js';
 
 import styles from './AboutMe.module.scss'
 
 import { Window as WindowProps } from '../../Redux/reducers/windows';
 
-import { Linkedin, GitHub, Instagram } from 'react-feather';
 
 import SallyLogo from '../../assets/img/projects/sally/icon.png';
 
@@ -123,6 +125,9 @@ const AboutMeProgram = (props: WindowProps) => {
                             desc={() => <>
                                 Dedicated delivery app for a pub in Limassol, Cyprus.
                                 <br />
+                                <b>Requirements: </b>
+                                2 mobile apps: one for the user and one for the drivers, so that they can accept orders and it tracks their live location and displays it to the user, similar to UberEats
+                                <br />
                                 Find it on the App Store and Google Play!
                             </>}
                             screenshots={[
@@ -161,7 +166,9 @@ const AboutMeProgram = (props: WindowProps) => {
                         <p>I enjoy creating apps with sensational user experiences and handling the backend in the meantime 😛<br />
                             I am self taught and have been coding since I was 16 (I'm 19 now) <span className={styles.tiny}>P.S. the 20s scare me 👀</span></p>
 
-                        <p>Languages I know: <span className={styles.primary}>JavaScript (TypeScript, React, React Native, Node.js), PHP, Visual Basic</span></p>
+                        <p>What I know: <span className={styles.primary}>JavaScript (TypeScript, React, React Native, Node.js), PHP, Visual Basic, NoSQL, MySQL</span></p>
+
+                        <p>What I'm learning right now: <span className={styles.primary}>MongoDB</span></p>
 
                         <p>I'm half Russian, half German, born in Germany but raised in beautiful Cyprus.<br />
                             I speak English, Greek and working on my Russian :3</p>
@@ -196,6 +203,37 @@ const AboutMeProgram = (props: WindowProps) => {
                         </div>
                     </section>
                 </div>
+
+                <Particles
+                    className={styles.Particles}
+                    params={{
+                        "particles": {
+                            "number": {
+                                "value": 200,
+                                "density": {
+                                    "enable": false
+                                }
+                            },
+                            "size": {
+                                "value": 3,
+                                "random": true,
+                                "anim": {
+                                    "speed": 4,
+                                    "size_min": 0.3
+                                }
+                            },
+                            "line_linked": {
+                                "enable": false
+                            },
+                            "move": {
+                                "random": true,
+                                "speed": 1,
+                                "direction": "top",
+                                "out_mode": "out"
+                            }
+                        }
+                    }}
+                />
             </div>
         </Window>
     )

@@ -5,17 +5,25 @@ $primaryColor: #1cffff;
 $secondaryColor: #797575;
 
 .Container {
-    background-color: $bg;
     width: 100%;
     height: 100%;
     font-family: "Poppins", sans-serif;
-    position: relative;
     overflow-y: scroll;
 }
 
 .Container * {
     font-family: inherit;
     color: white;
+}
+
+.Particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    z-index: -1;
+    top: 0;
+    left: 0
 }
 
 .primary {
@@ -53,6 +61,8 @@ h3 {
     display: flex;
     flex-direction: column;
     color: white;
+    overflow: hidden;
+    z-index: 2;
 }
 
 section {
@@ -108,6 +118,16 @@ section {
     transition: 0.5s all;
 }
 
+.ProfilePic::before {
+    position: absolute;
+    content: url("../../assets/misc/blob.svg");
+    width: 250px;
+    height: 250px;
+    transform: scale(2.5) translateY(-20%) translateX(22%);
+    z-index: -3;
+    pointer-events: none;
+}
+
 .ProfilePic img:hover {
     transform: scale(1.15) rotate(5deg) perspective(10px);
 }
@@ -141,7 +161,7 @@ section {
         transition: 0.5s all;
         text-decoration: none;
     }
-    
+
     a:hover h3 {
         color: $primaryColor !important;
     }
@@ -150,5 +170,5 @@ section {
 .Socials {
     display: flex;
     align-items: center;
-    gap: 15px
+    gap: 15px;
 }

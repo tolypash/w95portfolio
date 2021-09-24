@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    background-color: #fff;
+    background-color: #1b1b1b;
     padding: 20px;
     margin: 30px 0;
     border-radius: 25px;
@@ -12,11 +12,6 @@
     transition-duration: 0.4s;
     transition-timing-function: ease;
     box-sizing: border-box;
-    color: #010101;
-}
-
-.Card * {
-    color: #010101;
 }
 
 .Card:hover {
@@ -34,23 +29,16 @@
 .Name {
     display: block;
     font-weight: bold;
-    color: #010101 !important;
 }
 
 .Tech {
-    color: #797575 !important;
+    color: #797575;
     font-weight: lighter;
     font-size: 0.9em;
 }
 
 .Desc {
     font-size: 0.9em;
-    color: #797575 !important;
-}
-
-.Desc * {
-    color: #797575 !important;
-    font-size: inherit;
 }
 
 .Screenshots {
@@ -94,7 +82,7 @@
 }
 
 .Links a {
-    stroke: #010101;
+    stroke: #FFF;
     cursor: pointer;
 }
 

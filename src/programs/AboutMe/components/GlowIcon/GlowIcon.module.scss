@@ -21,20 +21,6 @@ $primaryColor: #1cffff;
         }
     }
 
-    a::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: $primaryColor;
-        transition: 0.5s;
-        transform: scale(0.9);
-        z-index: -1;
-    }
-
     a:hover {
         color: $primaryColor;
         box-shadow: 0 0 15px $primaryColor;

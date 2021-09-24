@@ -19,7 +19,18 @@ const initialState: {
         id: string
     }
 } = {
-    allWindows: []
+    allWindows: [{
+        id: 'aboutme-00000',
+        name: 'About Me',
+        slug: 'aboutme',
+        openedAt: '',
+        zIndex: 1,
+        minimized: false
+    }],
+    focused: {
+        zIndex: 1,
+        id: 'aboutme-00000'
+    }
 }
 
 export default function windowsReducer(state = initialState, action: any) {

@@ -33,7 +33,7 @@ function Auth() {
             return
         }
 
-        history.push('/home')
+        history.push('/')
     }
 
     return (

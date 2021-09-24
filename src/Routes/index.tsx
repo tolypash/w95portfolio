@@ -8,8 +8,8 @@ import Home from './Home';
 const Routes: React.FC = props => {
     return <Switch>
         <Route path={'/auth'} component={Auth} />
-        <Route path={'/home'} component={Home} />
-        <Route path={'/'} component={Splash} />
+        <Route path={'/splash'} component={Splash} />
+        <Route path={'/'} component={Home} />
     </Switch>;
 }
 

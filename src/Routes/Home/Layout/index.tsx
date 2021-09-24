@@ -4,7 +4,7 @@ import TaskBar from './TaskBar';
 
 import styles from './Layout.module.scss';
 
-import { useAppDispatch, useAppSelector } from '../../../Redux/hooks';
+import { useAppSelector } from '../../../Redux/hooks';
 
 const Layout = () => {
     const windows = useAppSelector(state => state.windows);

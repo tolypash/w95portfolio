@@ -203,3 +203,11 @@ section {
         gap: 20px;
     }
 }
+
+_::-webkit-full-page-media, _:future, :root .NameContainer video {
+    display: none;
+}
+
+_::-webkit-full-page-media, _:future, :root .ProfilePic:hover {
+    background: unset;
+}

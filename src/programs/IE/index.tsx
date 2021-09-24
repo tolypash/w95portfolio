@@ -84,7 +84,7 @@ const InternetExplorerProgram = (props: WindowProps) => {
             style={{ 
                 minWidth: !isMobile ? 700 : undefined, 
                 width: isMobile ? '100%' : undefined,
-                minHeight: 550, 
+                minHeight: 500, 
                 paddingBottom: 12  }}
         >
             <div className={styles.TopBar}>

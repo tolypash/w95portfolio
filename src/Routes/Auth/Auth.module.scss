@@ -22,3 +22,9 @@ label {
     align-items: center;
     flex-direction: column;
 }
+
+@media (max-width: 1200px) {
+    .SideContainer {
+        width: unset;
+    }
+}

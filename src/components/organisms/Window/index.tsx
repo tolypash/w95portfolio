@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, UIEvent } from 'react';
 import { useAppDispatch } from '../../../Redux/hooks';
 
 import Draggable from 'react-draggable';
@@ -43,6 +43,7 @@ const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> =
             onMouseDown={() => {
                 dispatch({ type: 'windows/focus', payload: { id: props.id } })
             }}
+            cancel={'.cancelDrag'}
         >
             <div
                 className={`${styles.Window} 
@@ -52,7 +53,7 @@ const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> =
             >
                 <div className={`${styles.TopBar} ${props.draggable ? 'handle drag' : ''}`}>
                     {props.name}
-                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+                    <div className='cancelDrag' style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
                         {props.resizable && <>
                             <IconButton onClick={() => dispatch({ type: 'windows/minimize', payload: { id: props.id } })}>
                                 _

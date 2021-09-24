@@ -84,3 +84,13 @@ iframe {
 .IconButton .Label {
     font-size: 20px;
 }
+
+@media (max-width: 1200px) {
+    .IconButton img {
+        height: 20px;
+    }
+
+    .IconButton .Label {
+        font-size: 16px;
+    }
+}

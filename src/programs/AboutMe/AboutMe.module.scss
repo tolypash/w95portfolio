@@ -23,7 +23,7 @@ $secondaryColor: #797575;
     background-color: $bg;
     z-index: -1;
     top: 0;
-    left: 0
+    left: 0;
 }
 
 .primary {
@@ -48,7 +48,7 @@ h3 {
 }
 
 .tiny {
-    font-size: 0.6em;
+    font-size: 0.55em;
     color: $secondaryColor;
 }
 
@@ -147,6 +147,7 @@ section {
 
 .Contact {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -171,4 +172,34 @@ section {
     display: flex;
     align-items: center;
     gap: 15px;
+    align-self: center;
+}
+
+@media (max-width: 1200px) {
+    .Main {
+        width: calc(100% - 10px);
+        border-radius: 35px;
+    }
+
+    section {
+        width: 87.5%;
+    }
+
+    .ProfilePic {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        right: unset;
+    }
+
+    .ProfilePic::before {
+        width: 200px;
+        height: 200px;
+        transform: scale(2) translateY(-15%) translateX(22%);
+    }
+
+    .Contact {
+        gap: 20px;
+    }
 }

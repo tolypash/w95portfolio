@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppDispatch } from '../../Redux/hooks';
+import useIsMobile from '../../hooks/useIsMobile';
 
 import Window from '../../components/organisms/Window';
 
@@ -28,6 +29,8 @@ const InternetExplorerProgram = (props: WindowProps) => {
     const [addressInput, setAddressInput] = React.useState('');
 
     const [randomKey, setRandomKey] = React.useState(1);
+
+    const isMobile = useIsMobile()
 
     let iframeRef = React.useRef<any>(null);
 
@@ -78,7 +81,11 @@ const InternetExplorerProgram = (props: WindowProps) => {
             dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
             draggable
             resizable
-            style={{ minWidth: 700, minHeight: 500, paddingBottom: 12 }}
+            style={{ 
+                minWidth: !isMobile ? 700 : undefined, 
+                width: isMobile ? '100%' : undefined,
+                minHeight: 550, 
+                paddingBottom: 12  }}
         >
             <div className={styles.TopBar}>
                 <div className={styles.left}>

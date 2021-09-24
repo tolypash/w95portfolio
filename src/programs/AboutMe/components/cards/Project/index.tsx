@@ -16,6 +16,8 @@ interface IProps {
 const ProjectCard: React.FC<IProps> = (props) => {
 
     return <div className={styles.Card}>
+        {/* REVERSED DIV! */}
+
         <div className={styles.Links}>
             {props.webURL && <a href={props.webURL} target='_blank' rel='noreferrer'>
                 <Globe />
@@ -25,16 +27,16 @@ const ProjectCard: React.FC<IProps> = (props) => {
         <div className={styles.Screenshots}>
             {props.screenshots?.map((url, index) => <img id={props.name + 'sc' + index} src={url} alt={'sc' + index} />)}
         </div>
-        <div style={{ marginLeft: 10, flex: 1 }}>
+
+        <div className={styles.DescContainer}>
             <span className={styles.Name}>{props.name.toUpperCase()}</span>
             <span className={styles.Tech}>{props.tech.join(' | ')}</span>
             <div className={styles.Desc}>
                 {props.desc()}
             </div>
         </div>
-        <div>
-            <img className={styles.Icon} src={props.logoSrc} />
-        </div>
+
+        <img className={styles.Icon} src={props.logoSrc} />
     </div>
 }
 

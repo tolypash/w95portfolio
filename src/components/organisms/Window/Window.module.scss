@@ -43,3 +43,10 @@
 .Window.resize {
     resize: both;
 }
+
+@media (max-width: 1200px) {
+    .Window {
+        top: 10%;
+        left: 0;
+    }
+}

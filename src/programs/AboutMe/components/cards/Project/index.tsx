@@ -16,7 +16,7 @@ interface IProps {
 const ProjectCard: React.FC<IProps> = (props) => {
 
     return <div className={styles.Card}>
-        {/* REVERSED DIV! */}
+        {/* REVERSED DIV! (in order for .Screenshots to be the next sibling of .Links to apply hover effect in CSS) */}
 
         <div className={styles.Links}>
             {props.webURL && <a href={props.webURL} target='_blank' rel='noreferrer'>

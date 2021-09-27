@@ -1,0 +1,30 @@
+.Container {
+    display: flex;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 300px;
+}
+
+.TopContainer {
+    display: flex;
+    align-items: center;
+}
+
+.MainContainer {
+    flex: 2
+}
+
+.Directories {
+    background-color: #fff;
+    border-top: 2px solid #1c1c1c;
+    border-left: 2px solid #1c1c1c;
+    border-bottom: 2px solid #e2e2e2;
+    border-right: 2px solid #e2e2e2;
+    height: 300px;
+}
+
+.SideContainer {
+    flex: 1;
+    height: 100%;
+}
+

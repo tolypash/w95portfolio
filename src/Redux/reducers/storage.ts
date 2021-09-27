@@ -75,6 +75,12 @@ export default function storageReducer(state = initialState, action: any) {
         case 'storage/delete': {
             return state
         }
+        case 'storage/save': {
+            return state
+        }
+        case 'storage/create': {
+            return state
+        }
         default:
             return state
     }

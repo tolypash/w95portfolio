@@ -28,7 +28,7 @@ const ProgramIcon = (props: React.HTMLProps<HTMLDivElement> & File) => {
             onClick={() => isMobile && openWindow()}
             onDoubleClick={() => !isMobile && openWindow()}
         >
-            <img src={props.sdata?.icon} />
+            <img src={props.sdata?.icon} alt='icon' />
             <br />
             <span>{props.name}</span>
         </div>

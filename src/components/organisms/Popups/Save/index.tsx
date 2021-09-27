@@ -1,27 +1,68 @@
 import React, { MouseEvent } from 'react';
-
-import styles from './SavePopup.module.scss';
+import { useAppSelector, useAppDispatch } from '../../../../Redux/hooks';
+import { getDirectory } from '../../../../utils/storage';
 
 import Window from '../../Window';
 import Button from '../../../atoms/Button';
-import IconButton from '../../../atoms/IconButton';
 import TextField from '../../../atoms/TextField';
+
+import styles from './SavePopup.module.scss';
+
+import { Directory, isDirectory } from '../../../../Redux/reducers/storage';
+
+import DirectoryIcon from '../../../../assets/icons/directory.png'
 
 interface IProps {
     dismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const SavePopup: React.FC<IProps> = (props) => {
+    const dispatch = useAppDispatch();
+    const storage = useAppSelector(state => state.storage);
+
+    const [ref, setRef] = React.useState('')
+    const [data, setData] = React.useState<Directory | null>(null)
+
+    const [filename, setFilename] = React.useState('Untitled')
+
+    React.useEffect(() => {
+        const storageData = getDirectory(storage, ref)
+        setData(storageData)
+    }, [ref, storage])
+
+    const goUp = () => {
+        const dirs = ref.split('/')
+
+        dirs.pop()
+
+        const newRef = dirs.join('/')
+
+        console.log(newRef)
+
+        setRef(newRef)
+    }
+
+    const goTo = (dirName: string) => {
+        const dirs = ref.split('/')
+
+        dirs.push(dirName)
+
+        setRef(dirs.join('/'))
+    }
+
+    const save = () => {
+
+    }
 
     return (
         <Window id='save' name='Save As' dismiss={props.dismiss} draggable zIndex={999}>
             <div className={styles.Container}>
                 <div className={styles.TopContainer}>
                     Save in:
-                    <TextField id='save_location' onChangeText={() => { }} />
+                    <TextField id='save_location' onChangeText={() => { }} value={'C:' + (ref || '/')} />
                     <Button
                         style={{ minWidth: 25, marginRight: 5, marginBottom: 0, marginTop: 0 }}
-                        onClick={() => { }}
+                        onClick={() => goUp()}
                     >
                         ..
                     </Button>
@@ -33,10 +74,24 @@ const SavePopup: React.FC<IProps> = (props) => {
                     </Button>
                 </div>
                 <div className={styles.MainContainer}>
-
+                    <div className={styles.Directories}>
+                        {data && data.children.map((child) => {
+                            if (isDirectory(child)) {
+                                return <div className={styles.DirectoryRow} onClick={() => goTo(child.name)}>
+                                    <img src={DirectoryIcon} alt='icon' />
+                                    {child.name}
+                                </div>
+                            }
+                        })}
+                    </div>
+                    <div className={styles.SideContainer}>
+                        <Button onClick={() => save()}>Save</Button>
+                        <Button onClick={props.dismiss}>Cancel</Button>
+                    </div>
                 </div>
-
-                <div className={styles.SideContainer}>
+                <div className={styles.BottomContainer}>
+                    Name:
+                    <TextField id='filename' onChangeText={(text: string) => setFilename(text)} value={filename} />
                 </div>
             </div>
         </Window>

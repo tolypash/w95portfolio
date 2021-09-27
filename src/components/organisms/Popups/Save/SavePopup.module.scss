@@ -1,5 +1,6 @@
 .Container {
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     margin: 10px;
     min-width: 300px;
@@ -8,23 +9,41 @@
 .TopContainer {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .MainContainer {
-    flex: 2
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .Directories {
+    flex: 1;
     background-color: #fff;
     border-top: 2px solid #1c1c1c;
     border-left: 2px solid #1c1c1c;
     border-bottom: 2px solid #e2e2e2;
     border-right: 2px solid #e2e2e2;
-    height: 300px;
+    min-height: 250px;
 }
 
 .SideContainer {
-    flex: 1;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
 }
 
+.DirectoryRow {
+    display: flex;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.DirectoryRow img {
+    height: 20px;
+    margin-right: 6px;
+}
+
+.BottomContainer {
+    margin-top: 10px;
+}

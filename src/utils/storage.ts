@@ -4,6 +4,10 @@ export function getFile(storage: Directory, ref?: string):File | null {
     const paths = ref?.split('/');
 
     if (paths && paths.length > 0) {
+        if (!paths[0]) {
+            paths.shift();
+        }
+        
         let file = null;
         let temp = storage;
         let exit = false;
@@ -37,6 +41,10 @@ export function getDirectory(storage: Directory, ref: string): Directory | null 
     const paths = ref?.split('/');
 
     if (paths && paths.length > 0) {
+        if (!paths[0]) {
+            paths.shift();
+        }
+
         let temp = storage;
         let exit = false;
         let pathIndex = 0;

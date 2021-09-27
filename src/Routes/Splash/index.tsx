@@ -12,7 +12,7 @@ function Splash() {
     }, [])
 
     return (
-        <img src={SplashImage} className={styles.MainImage} />
+        <img src={SplashImage} className={styles.MainImage} alt='splash image' />
     )
 }
 

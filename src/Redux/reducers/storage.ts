@@ -68,7 +68,7 @@ const initialState: Directory = {
     }]
 }
 
-function set(storage: Directory, ref: string, data: Directory | File) {
+function set(storage: Directory, ref: string, data: Directory | File, create: boolean) {
     const paths = ref?.split('/');
 
     if (paths && paths.length > 0) {
@@ -112,17 +112,34 @@ function set(storage: Directory, ref: string, data: Directory | File) {
         // check if there is a child with the same name
         const commonNameIndex = dir.children.findIndex(x => x.name === data.name)
 
-        if (commonNameIndex > -1) {
-            // child with same name
-            if (isDirectory(data)) {
-                data.name = getUniqueFolderName(dir, data.name + ' 1')
-            } else {
-                alert('File with that name already exists')
-                return null;
+        if (create) {
+            if (commonNameIndex > -1) {
+                // child with same name
+                if (isDirectory(data)) {
+                    data.name = getUniqueFolderName(dir, data.name + ' 1')
+                } else {
+                    alert('File with that name already exists')
+                    return null;
+                }
+            }
+
+            dir.children.push(data)
+        } else {
+            if (commonNameIndex === -1) {
+                alert('File not found')
+                return null
+            }
+
+            console.log(data)
+
+            dir.children[commonNameIndex] = {
+                ...dir.children[commonNameIndex],
+                sdata: {
+                    ...dir.children[commonNameIndex].sdata,
+                    ...data
+                }
             }
         }
-
-        dir.children.push(data)
 
         return newStorage
     }
@@ -156,18 +173,20 @@ export default function storageReducer(state = initialState, action: any) {
             return state
         }
         case 'storage/save': {
-            return state
+            const { name, ref, sdata } = action.payload
+
+            const newStorage: any = set(state, ref, { name: name, ...sdata }, false)
+
+            return newStorage
         }
         case 'storage/create': {
             const { dir, name, ref, ...rest } = action.payload
 
             let newChild: Directory | File = dir ?
                 { type: 'dir', name: name, children: [] } :
-                { type: 'file', name: name, ...rest}
+                { type: 'file', name: name, ...rest }
 
-            const newStorage: any = set(state, ref, newChild)
-
-            console.log(newChild)
+            const newStorage: any = set(state, ref, newChild, true)
 
             if (newStorage) {
                 return newStorage

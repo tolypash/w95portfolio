@@ -34,7 +34,7 @@ const NotepadProgram = (props: WindowProps) => {
                         </div>
                         <div
                             className={'clickable'}
-                            onClick={() => { }}
+                            onClick={() => dispatch({ type: 'storage/save', payload: { name: props.sdata.name, ref: props.sdata.ref, sdata: { text: data } } })}
                         >
                             Save
                         </div>

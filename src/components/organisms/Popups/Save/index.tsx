@@ -14,7 +14,7 @@ import DirectoryIcon from '../../../../assets/icons/directory.png'
 
 interface IProps {
     data?: any;
-    dismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
+    dismiss: () => void;
 }
 
 const SavePopup: React.FC<IProps> = (props) => {
@@ -49,7 +49,10 @@ const SavePopup: React.FC<IProps> = (props) => {
         setRef(dirs.join('/'))
     }
 
-    const save = () => dispatch({ type: 'storage/create', payload: { dir: false, name: filename, ref: ref, slug: 'notepad', sdata: props.data } })
+    const save = () => {
+        dispatch({ type: 'storage/create', payload: { dir: false, name: filename, ref: ref, slug: 'notepad', sdata: props.data } })
+        props.dismiss()
+    }
 
     return (
         <Window id='save' name='Save As' dismiss={props.dismiss} draggable zIndex={999}>

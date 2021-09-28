@@ -17,7 +17,7 @@ const ProgramIcon = (props: React.HTMLProps<HTMLDivElement> & File) => {
         type: 'windows/open',
         payload: {
             slug: props.slug,
-            sdata: sdata
+            sdata: { ...sdata, name: props.name }
         }
     })
 

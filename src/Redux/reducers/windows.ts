@@ -9,7 +9,8 @@ export interface Window {
     openedAt: string,
     zIndex: number,
     minimized: boolean,
-    ref?: string
+    ref?: string,
+    sdata?: any
 };
 
 const initialState: {
@@ -38,7 +39,7 @@ export default function windowsReducer(state = initialState, action: any) {
 
     switch (action.type) {
         case 'windows/open': {
-            const { slug } = action.payload
+            const { slug, sdata } = action.payload
             const { name, overrideSingleInstance } = defaultPrograms[slug];
 
             let id = `${slug}-${makeRandomID(5)}`;
@@ -82,7 +83,8 @@ export default function windowsReducer(state = initialState, action: any) {
                         slug: slug,
                         openedAt: new Date().toLocaleDateString(),
                         zIndex: (focused?.zIndex || 2) + 1,
-                        minimized: false
+                        minimized: false,
+                        sdata: sdata
                     }
                 ],
                 focused: {

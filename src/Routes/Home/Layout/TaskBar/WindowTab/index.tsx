@@ -10,8 +10,6 @@ import defaultPrograms from '../../../../../programs/default';
 const WindowTab = (props: Window & { focused: boolean }) => {
     const dispatch = useAppDispatch()
 
-    console.log(defaultPrograms[props.slug])
-
     const image = defaultPrograms[props.slug]?.icon;
 
     const handleClick = () => {

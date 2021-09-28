@@ -7,7 +7,7 @@ export function getFile(storage: Directory, ref?: string):File | null {
         if (!paths[0]) {
             paths.shift();
         }
-        
+
         let file = null;
         let temp = storage;
         let exit = false;

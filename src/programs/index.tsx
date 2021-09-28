@@ -8,7 +8,7 @@ import ExecutableProgram from './Executable';
 
 import { Window } from '../Redux/reducers/windows';
 
-export default function ProgramSelector(props: Window) {
+export default function ProgramSelector(props: Window & { data?: any }) {
     switch (props.slug) {
         case 'notepad':
             return <NotepadProgram {...props} />

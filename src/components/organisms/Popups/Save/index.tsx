@@ -13,6 +13,7 @@ import { Directory, isDirectory } from '../../../../Redux/reducers/storage';
 import DirectoryIcon from '../../../../assets/icons/directory.png'
 
 interface IProps {
+    data?: any;
     dismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -37,8 +38,6 @@ const SavePopup: React.FC<IProps> = (props) => {
 
         const newRef = dirs.join('/')
 
-        console.log(newRef)
-
         setRef(newRef)
     }
 
@@ -50,9 +49,7 @@ const SavePopup: React.FC<IProps> = (props) => {
         setRef(dirs.join('/'))
     }
 
-    const save = () => {
-
-    }
+    const save = () => dispatch({ type: 'storage/create', payload: { dir: false, name: filename, ref: ref, slug: 'notepad', sdata: props.data } })
 
     return (
         <Window id='save' name='Save As' dismiss={props.dismiss} draggable zIndex={999}>
@@ -68,16 +65,16 @@ const SavePopup: React.FC<IProps> = (props) => {
                     </Button>
                     <Button
                         style={{ marginBottom: 0, marginTop: 0 }}
-                        onClick={() => { }}
+                        onClick={() => dispatch({ type: 'storage/create', payload: { dir: true, name: 'New Folder', ref: ref } })}
                     >
                         New Folder
                     </Button>
                 </div>
                 <div className={styles.MainContainer}>
                     <div className={styles.Directories}>
-                        {data && data.children.map((child) => {
+                        {data && data.children.map((child, index) => {
                             if (isDirectory(child)) {
-                                return <div className={styles.DirectoryRow} onClick={() => goTo(child.name)}>
+                                return <div key={'dir' + index + child.name} className={styles.DirectoryRow} onClick={() => goTo(child.name)}>
                                     <img src={DirectoryIcon} alt='icon' />
                                     {child.name}
                                 </div>

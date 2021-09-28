@@ -11,13 +11,13 @@ const ProgramIcon = (props: React.HTMLProps<HTMLDivElement> & File) => {
     const dispatch = useAppDispatch()
     const isMobile = useIsMobile()
 
-    const { slug, data = {}, ...otherProps } = props
+    const { slug, sdata, ...otherProps } = props
 
     const openWindow = () => dispatch({
         type: 'windows/open',
         payload: {
             slug: props.slug,
-            ...data
+            sdata: sdata
         }
     })
 

@@ -3,7 +3,7 @@
     flex-direction: column;
     overflow: hidden;
     margin: 10px;
-    min-width: 300px;
+    min-width: 500px;
 }
 
 .TopContainer {
@@ -25,6 +25,8 @@
     border-bottom: 2px solid #e2e2e2;
     border-right: 2px solid #e2e2e2;
     min-height: 250px;
+    max-height: 250px;
+    overflow-y: scroll;
 }
 
 .SideContainer {
@@ -37,6 +39,7 @@
     display: flex;
     align-items: center;
     margin: 5px 10px;
+    cursor: pointer;
 }
 
 .DirectoryRow img {

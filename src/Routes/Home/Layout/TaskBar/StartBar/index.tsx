@@ -11,6 +11,7 @@ import SettingsIcon from '../../../../../assets/icons/settings.png';
 import LogOffIcon from '../../../../../assets/icons/key_win-4.png';
 import NotepadIcon from '../../../../../assets/icons/notepad.png';
 import IEIcon from '../../../../../assets/icons/msie.png';
+import AboutMeIcon from '../../../../../assets/icons/aboutme-small.png';
 
 const StartBar: React.FC = (props) => {
     const history = useHistory()
@@ -41,6 +42,11 @@ const StartBar: React.FC = (props) => {
                     onClick: () => run('ie')
                 }
             ]
+        },
+        {
+            label: 'About Me',
+            icon: AboutMeIcon,
+            onClick: () => run('aboutme')
         },
         {
             label: 'Settings',

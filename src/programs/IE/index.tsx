@@ -81,11 +81,12 @@ const InternetExplorerProgram = (props: WindowProps) => {
             dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
             draggable
             resizable
-            style={{ 
-                minWidth: !isMobile ? 700 : undefined, 
+            style={{
+                minWidth: !isMobile ? 700 : undefined,
                 width: isMobile ? '100%' : undefined,
-                minHeight: 500, 
-                paddingBottom: 12  }}
+                minHeight: 500,
+                paddingBottom: 12
+            }}
         >
             <div className={styles.TopBar}>
                 <div className={styles.left}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppDispatch } from '../../Redux/hooks';
+import useIsMobile from '../../hooks/useIsMobile';
 
 import Window from '../../components/organisms/Window';
 import SavePopup from '../../components/organisms/Popups/Save';
@@ -11,10 +12,10 @@ import styles from './Notepad.module.scss'
 const NotepadProgram = (props: WindowProps) => {
     const dispatch = useAppDispatch()
 
-    const [savePopupShown, setSavePopupShown] = React.useState(true)
+    const [savePopupShown, setSavePopupShown] = React.useState(false)
     const [data, setData] = React.useState(props.sdata?.text || '')
 
-    console.log(props)
+    const isMobile = useIsMobile()
 
     return (
         <>
@@ -23,6 +24,11 @@ const NotepadProgram = (props: WindowProps) => {
                 dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
                 draggable
                 resizable
+                style={{
+                    minWidth: !isMobile ? 700 : undefined,
+                    width: isMobile ? '100%' : undefined,
+                    minHeight: 500
+                }}
             >
                 <div className={styles.Container}>
                     <div className={styles.TopBar}>
@@ -34,7 +40,14 @@ const NotepadProgram = (props: WindowProps) => {
                         </div>
                         <div
                             className={'clickable'}
-                            onClick={() => dispatch({ type: 'storage/save', payload: { name: props.sdata.name, ref: props.sdata.ref, sdata: { text: data } } })}
+                            onClick={() => {
+                                console.log(props.sdata)
+                                if (props.sdata.ref) {
+                                    dispatch({ type: 'storage/save', payload: { name: props.sdata.name, ref: props.sdata.ref, sdata: { text: data } } })
+                                } else {
+                                    setSavePopupShown(true)
+                                }
+                            }}
                         >
                             Save
                         </div>

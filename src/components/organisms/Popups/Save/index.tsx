@@ -55,7 +55,7 @@ const SavePopup: React.FC<IProps> = (props) => {
     }
 
     return (
-        <Window id='save' name='Save As' dismiss={props.dismiss} draggable zIndex={999}>
+        <Window id='save' name='Save As' dismiss={props.dismiss} draggable zIndex={999} style={{ maxWidth: 450, width: '100%' }}>
             <div className={styles.Container}>
                 <div className={styles.TopContainer}>
                     Save in:

@@ -29,8 +29,6 @@ const Desktop = (props: IProps) => {
 
     const desktop = getDirectory(storage, 'Desktop')
 
-    console.log(props.windows)
-
     return (
         <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
             <div>

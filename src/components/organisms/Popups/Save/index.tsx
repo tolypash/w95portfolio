@@ -13,8 +13,9 @@ import { Directory, isDirectory } from '../../../../Redux/reducers/storage';
 import DirectoryIcon from '../../../../assets/icons/directory.png'
 
 interface IProps {
-    data?: any;
-    dismiss: () => void;
+    data?: any,
+    dismiss: () => void,
+    onSave?: () => void
 }
 
 const SavePopup: React.FC<IProps> = (props) => {
@@ -50,7 +51,16 @@ const SavePopup: React.FC<IProps> = (props) => {
     }
 
     const save = () => {
-        dispatch({ type: 'storage/create', payload: { dir: false, name: filename, ref: ref, slug: 'notepad', sdata: props.data } })
+        dispatch({
+            type: 'storage/create',
+            payload: {
+                dir: false,
+                name: filename,
+                ref: ref,
+                slug: 'notepad',
+                sdata: props.data
+            }
+        })
         props.dismiss()
     }
 

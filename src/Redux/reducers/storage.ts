@@ -39,12 +39,15 @@ const initialState: Directory = {
         children: [{
             type: 'file',
             name: 'Internet Explorer',
-            slug: 'ie',
+            slug: 'ie'
         },
         {
             type: 'file',
-            name: 'Notepad',
-            slug: 'notepad'
+            name: 'Welcome',
+            slug: 'notepad',
+            sdata: {
+                text: 'Welcome'
+            }
         },
         {
             type: 'file',

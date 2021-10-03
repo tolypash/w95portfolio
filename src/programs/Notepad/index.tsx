@@ -41,9 +41,9 @@ const NotepadProgram = (props: WindowProps) => {
                         <div
                             className={'clickable'}
                             onClick={() => {
-                                console.log(props.sdata)
-                                if (props.sdata.ref) {
-                                    dispatch({ type: 'storage/save', payload: { name: props.sdata.name, ref: props.sdata.ref, sdata: { text: data } } })
+                                if (props.sdata?.ref) {
+                                    const fileData = { text: data }
+                                    dispatch({ type: 'storage/save', payload: { name: props.sdata.name, ref: props.sdata.ref, sdata: fileData } })
                                 } else {
                                     setSavePopupShown(true)
                                 }
@@ -60,10 +60,14 @@ const NotepadProgram = (props: WindowProps) => {
                     </div>
                     <textarea className={styles.TextArea} onChange={(e) => setData(e.target.value)} value={data} />
 
-                    {savePopupShown && <SavePopup data={{ text: data }} dismiss={() => setSavePopupShown(false)} />}
+                    {savePopupShown && (
+                        <SavePopup
+                            data={{ text: data }}
+                            dismiss={() => setSavePopupShown(false)}
+                        />
+                    )}
                 </div>
             </Window>
-
         </>
     )
 }

@@ -47,7 +47,6 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
             {...props}
             dismiss={() => dispatch({ type: 'windows/kill', payload: props.id })}
             draggable
-            resizable
             style={{
                 minWidth: !isMobile ? 500 : undefined,
             }}
@@ -80,10 +79,20 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
                     </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row-reverse', gap: 10 }}>
-                    <Button>Apply</Button>
+                    <Button onClick={() => dispatch({ type: 'settings/edit', payload: { wallpaper: wallpaper } })}>Apply</Button>
                     <Button onClick={() => dispatch({ type: 'windows/kill', payload: props.id })}>Cancel</Button>
-                    <Button>OK</Button>
+                    <Button onClick={() => {
+                        dispatch({ type: 'settings/edit', payload: { wallpaper: wallpaper } })
+                        dispatch({ type: 'windows/kill', payload: props.id })
+                    }}>
+                        OK
+                    </Button>
                 </div>
+
+                <span>
+                    This website was built with React and Redux.{' '}
+                    <a href='https://github.com/tolypash/w95portfolio' target='_blank'>Check the code on GitHub</a>
+                </span>
             </div>
         </Window>
     )

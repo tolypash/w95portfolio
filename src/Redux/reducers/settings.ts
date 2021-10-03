@@ -16,7 +16,11 @@ export default function settingsReducer(state = initialState, action: any) {
 
     switch (action.type) {
         case 'settings/edit': {
-            return state
+            
+            return {
+                ...state,
+                ...action.payload
+            }
         }
         default:
             return state

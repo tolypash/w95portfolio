@@ -26,11 +26,16 @@ interface IProps {
 
 const Desktop = (props: IProps) => {
     const storage = useAppSelector(state => state.storage)
+    const wallpaper = useAppSelector(state => state.settings.wallpaper)
 
     const desktop = getDirectory(storage, 'Desktop')
 
+    const desktopWallpaperStyle:React.HTMLAttributes<HTMLDivElement>['style'] = wallpaper.color ? 
+    { backgroundColor: wallpaper.value } : 
+    { backgroundImage: `url(${wallpaper.value})`, backgroundSize: 'cover', backgroundPosition: 'center'}
+
     return (
-        <div style={{ display: 'flex', flex: 1, backgroundColor: '#018281' }}>
+        <div style={{ display: 'flex', flex: 1, ...desktopWallpaperStyle }}>
             <div>
                 {desktop?.children.map((file, index: number) => {
                     if (!isDirectory(file)) {

@@ -38,15 +38,10 @@ const initialState: Directory = {
         type: 'dir',
         children: [{
             type: 'file',
-            name: 'Internet Explorer',
-            slug: 'ie'
-        },
-        {
-            type: 'file',
             name: 'Welcome',
             slug: 'notepad',
             sdata: {
-                text: 'Welcome'
+                text: `04/10/2021 - 00:44\n\nWelcome to my personal website :)\n\nI was trying to come up with an idea for my personal portfolio while recovering from a surgery and had time off work. I am not really a designer so I decided to go with this retro Windows 95 replica\n\nThis was built from scratch using React (TypeScript ofc) and for state management I used Redux\nIt was really fun building this!\n\nCheck the code out on GitHub: (copy and paste) \n\nhttps://github.com/tolypash/w95portfolio`
             }
         },
         {

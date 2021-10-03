@@ -26,12 +26,12 @@ const initialState: {
         slug: 'aboutme',
         openedAt: '',
         zIndex: 1,
-        minimized: true
+        minimized: false
     }],
-    // focused: {
-    //     zIndex: 1,
-    //     id: 'aboutme-00000'
-    // }
+    focused: {
+        zIndex: 1,
+        id: 'aboutme-00000'
+    }
 }
 
 export default function windowsReducer(state = initialState, action: any) {

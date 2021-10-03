@@ -1,5 +1,6 @@
-import React, { MouseEvent, UIEvent } from 'react';
+import React, { MouseEvent } from 'react';
 import { useAppDispatch } from '../../../Redux/hooks';
+import useIsMobile from '../../../hooks/useIsMobile';
 
 import Draggable from 'react-draggable';
 
@@ -23,6 +24,7 @@ interface IProps {
 
 const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
     const dispatch = useAppDispatch()
+    const isMobile = useIsMobile()
 
     const [sizeState, setSizeState] = React.useState(props.defaultSize || 'free')
 
@@ -49,7 +51,11 @@ const Window: React.FC<WindowProps & IProps & React.HTMLProps<HTMLDivElement>> =
                 className={`${styles.Window} 
                 ${props.resizable ? styles.resize : ''} 
                 ${styles[sizeState]} ${props.minimized ? 'hidden' : ''}`}
-                style={{ zIndex: props.zIndex, ...props.style }}
+                style={{ 
+                    zIndex: props.zIndex, 
+                    width: isMobile ? '100%' : undefined,
+                    ...props.style 
+                }}
             >
                 <div className={`${styles.TopBar} ${props.draggable ? 'handle drag' : ''}`}>
                     {props.name}

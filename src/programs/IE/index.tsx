@@ -83,7 +83,6 @@ const InternetExplorerProgram = (props: WindowProps) => {
             resizable
             style={{
                 minWidth: !isMobile ? 700 : undefined,
-                width: isMobile ? '100%' : undefined,
                 minHeight: 500,
                 paddingBottom: 12
             }}

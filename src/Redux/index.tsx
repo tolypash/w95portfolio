@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import windowsReducer, { Window } from './reducers/windows';
 import storageReducer, { Directory } from './reducers/storage';
+import settingsReducer, { ISettings } from './reducers/settings';
 
 export interface RootState {
     windows: {
@@ -13,13 +14,15 @@ export interface RootState {
             zIndex: number
         }
     },
-    storage: Directory
+    storage: Directory,
+    settings: ISettings
 }
 
 const store = configureStore({
     reducer: {
         windows: windowsReducer,
-        storage: storageReducer
+        storage: storageReducer,
+        settings: settingsReducer
     }
 })
 

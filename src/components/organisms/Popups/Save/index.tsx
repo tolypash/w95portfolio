@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../Redux/hooks';
 import { getDirectory } from '../../../../utils/storage';
 
@@ -91,6 +91,8 @@ const SavePopup: React.FC<IProps> = (props) => {
                                     <img src={DirectoryIcon} alt='icon' />
                                     {child.name}
                                 </div>
+                            } else {
+                                return null
                             }
                         })}
                     </div>

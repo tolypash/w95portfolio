@@ -54,7 +54,7 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
             <div style={{ margin: 15 }}>
                 <div className={styles.Preview}>
                     {!wallpaper?.color ?
-                        <img src={wallpaper?.value} />
+                        <img src={wallpaper?.value} alt='wallpaper preview' />
                         : <div style={{ backgroundColor: wallpaper?.value }} />
                     }
                 </div>
@@ -91,7 +91,7 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
 
                 <span>
                     This website was built with React and Redux.{' '}
-                    <a href='https://github.com/tolypash/w95portfolio' target='_blank'>Check the code on GitHub</a>
+                    <a href='https://github.com/tolypash/w95portfolio' target='_blank' rel='noreferrer'>Check the code on GitHub</a>
                 </span>
             </div>
         </Window>

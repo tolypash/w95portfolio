@@ -58,7 +58,7 @@ const TaskBar = (props: IProps) => {
                     className={`${styles.StartButton} ${startBarShown ? styles.selected : ''}`}
                     onClick={() => setStartBarShown(!startBarShown)}
                 >
-                    <img src={StartIcon} className={styles.StartIcon} />
+                    <img alt='start icon' src={StartIcon} className={styles.StartIcon} />
                     Start
                 </div>
             </div>

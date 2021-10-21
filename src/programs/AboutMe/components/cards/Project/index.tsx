@@ -25,7 +25,7 @@ const ProjectCard: React.FC<IProps> = (props) => {
         </div>
 
         <div className={styles.Screenshots}>
-            {props.screenshots?.map((url, index) => <img id={props.name + 'sc' + index} src={url} alt={'sc' + index} />)}
+            {props.screenshots?.map((url, index) => <img key={props.name + 'sc' + index} src={url} alt={'project screenshot'} />)}
         </div>
 
         <div className={styles.DescContainer}>
@@ -36,7 +36,7 @@ const ProjectCard: React.FC<IProps> = (props) => {
             </div>
         </div>
 
-        <img className={styles.Icon} src={props.logoSrc} />
+        <img className={styles.Icon} src={props.logoSrc} alt='project logo' />
     </div>
 }
 

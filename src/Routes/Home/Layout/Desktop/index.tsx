@@ -46,7 +46,7 @@ const Desktop = (props: IProps) => {
                             sdata={{ ...defaultPrograms[file.slug], ...file.sdata, ref: '/Desktop' }}
                         />
                     } else {
-
+                        return null
                     }
                 })}
             </div>

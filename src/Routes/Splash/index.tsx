@@ -12,7 +12,7 @@ function Splash() {
     }, [])
 
     return (
-        <img src={SplashImage} className={styles.MainImage} alt='splash image' />
+        <img src={SplashImage} className={styles.MainImage} alt='windows 95 startup screen (splash screen)' />
     )
 }
 

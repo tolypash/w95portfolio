@@ -23,11 +23,11 @@ export interface File extends IType {
 }
 
 export function isDirectory(dir: IType): dir is Directory {
-    return (<Directory>dir).type === 'dir';
+    return (dir as Directory).type === 'dir';
 }
 
 export function isFile(file: IType): file is File {
-    return (<File>file).slug !== undefined;
+    return (file as File).slug !== undefined;
 }
 
 const initialState: Directory = {

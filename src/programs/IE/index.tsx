@@ -95,7 +95,7 @@ const InternetExplorerProgram = (props: WindowProps) => {
                 </div>
 
                 <div className={styles.right}>
-                    <img src={IEIcon} />
+                    <img src={IEIcon} alt='internet explorer icon' />
                 </div>
             </div>
 
@@ -120,17 +120,17 @@ const InternetExplorerProgram = (props: WindowProps) => {
                     ignoreNextLoad.current = true
                     setRandomKey(prevState => prevState + 1)
                 }}>
-                    <img src={RefreshIcon} alt='icon' />
+                    <img src={RefreshIcon} alt='refresh icon' />
                 </IconButton>
 
                 <IconButton label='Home' onClick={() => {
                     iframeRef.current.src = `https://www.bing.com/`
                 }}>
-                    <img src={HomeIcon} alt='icon' />
+                    <img src={HomeIcon} alt='home icon' />
                 </IconButton>
 
                 <IconButton label='Search' onClick={search}>
-                    <img src={SearchIcon} alt='icon' />
+                    <img src={SearchIcon} alt='search icon' />
                 </IconButton>
             </div>
 
@@ -153,7 +153,7 @@ const InternetExplorerProgram = (props: WindowProps) => {
 
             <Divider />
 
-            <iframe key={randomKey} ref={iframeRef} src={url} onLoad={onLoad} />
+            <iframe key={randomKey} title='browser content' ref={iframeRef} src={url} onLoad={onLoad} />
         </Window>
     )
 }

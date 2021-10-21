@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { useAppDispatch } from '../../Redux/hooks';
 
 import Window from '../../components/organisms/Window';
 

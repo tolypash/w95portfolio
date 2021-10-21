@@ -163,14 +163,22 @@ const AboutMeProgram = (props: WindowProps) => {
                         <span className={styles.secondary}>ABOUT ME</span>
                         <h2>Let's get to know me, shall we?</h2>
 
-                        <p>I enjoy creating apps with exceptional user experiences and handling the backend in the meantime 😛<br /></p>
+                        <p>I specialise in creating apps with exceptional user experiences and handling the backend in the meantime 😛<br /></p>
 
-                        <p>I'm half Russian, half German, born in Germany but grew up in beautiful Cyprus.<br />
+                        <h4>Skills</h4>
+
+                        <p>Languages: <span className={styles.primary}>JavaScript, TypeScript, PHP, Visual Basic</span></p>
+                        
+                        <p>Frameworks / Libraries: <span className={styles.primary}>React, React Native, Node.js, Redux, Context API</span></p>
+
+                        <p>Backend: <span className={styles.primary}>Firebase, NoSQL, MySQL</span></p>
+
+                        <p>Software: <span className={styles.primary}>Git, VS Code</span></p>
+
+                        <p>What I'm learning right now: <span className={styles.primary}>MongoDB, JEST</span></p>
+
+                        <p>I'm half Russian, half German, born in Germany and grew up in beautiful Cyprus.<br />
                             I speak English, Greek and working on my Russian :3</p>
-
-                        <p>What I know: <span className={styles.primary}>JavaScript (TypeScript, React, React Native, Node.js), PHP, Visual Basic, NoSQL, MySQL</span></p>
-
-                        <p>What I'm learning right now: <span className={styles.primary}>MongoDB</span></p>
                     </section>
 
                     <section>

@@ -55,11 +55,14 @@ const initialState: Directory = {
             name: 'New Folder',
             children: [{
                 type: 'dir',
-                name: 'Testing',
+                name: 'Secret Documents',
                 children: [{
                     type: 'file',
-                    name: 'Test',
-                    slug: 'notepad'
+                    name: 'Top Secret',
+                    slug: 'notepad',
+                    sdata: {
+                        text: 'Hi :)'
+                    }
                 }]
             }]
         }]

@@ -36,6 +36,8 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
     const settings = useAppSelector(state => state.settings);
     const isMobile = useIsMobile();
 
+    const inputFile = React.useRef<HTMLInputElement | null>(null)
+
     const [wallpaper, setWallpaper] = React.useState<ISettings['wallpaper']>()
 
     React.useEffect(() => {
@@ -67,6 +69,24 @@ const SettingsProgram: React.FC<WindowProps> = (props) => {
                                     {w.name}
                                 </div>
                             ))}
+
+                            <div className={styles.WallpaperRow} onClick={() => inputFile.current?.click()}>
+                                Browse...
+                                <input
+                                    style={{ display: 'none' }}
+                                    type='file'
+                                    id='wallpaperFile'
+                                    ref={inputFile}
+                                    accept={"image/*"}
+                                    onChange={(e) => {
+                                        const files = e.target.files
+                                        if (files) {
+                                            const url = URL.createObjectURL(files[0])
+                                            setWallpaper({ color: false, value: url })
+                                        }
+                                    }}
+                                />
+                            </div>
                         </div>
                         <div className={styles.Colors}>
                             {COLORS.map(color => (

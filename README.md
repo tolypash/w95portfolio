@@ -15,6 +15,7 @@ This website was built with **React** using:
 
 * Login and logout
 * Multiple windows and working taskbar
+* Working file explorer
 * Working Notepad, edit save files in directories/folders (like Windows)
 * Working Internet Explorer (CORS enabled websites only)
 * Settings: Change your background color / image

@@ -5,21 +5,27 @@ import { useAppDispatch } from '../../Redux/hooks';
 import Window from '../../components/organisms/Window';
 
 import ProjectCard from './components/cards/Project';
+import Modal from './components/Modal';
 import GlowIcon from './components/GlowIcon';
-import { Linkedin, GitHub, Instagram } from 'react-feather';
 
 import Particles from 'react-particles-js';
+
+import { Linkedin, GitHub, Instagram } from 'react-feather';
 
 import styles from './AboutMe.module.scss'
 
 import { Window as WindowProps } from '../../Redux/reducers/windows';
-
 
 import SallyLogo from '../../assets/img/projects/sally/icon.png';
 
 const SallySC1 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F1.png?alt=media&token=560419fb-e1a5-4583-82f8-e7934747abac'
 const SallySC2 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F2.png?alt=media&token=3f7e35d5-a64e-4dd3-8598-546f031fb2e4'
 const SallySC3 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F3.png?alt=media&token=e1c1376f-9dbd-42bc-94ea-f8f6d7d4f600'
+const SallySC4 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F4.png?alt=media&token=80bd41a3-a3d1-49fb-a65e-0c1e73869713'
+const SallySC5 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F5.png?alt=media&token=97e72ffe-ea80-4edc-bd88-f2dcf3b335de'
+const SallySC5_2 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F5_2.png?alt=media&token=4bcee052-db40-4e60-8dcd-b4871d423ebb'
+const SallySC6 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F6.png?alt=media&token=261ddb7b-453b-4b1c-8483-d65ac3e56eb0'
+const SallySC7 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fsally%2F7.png?alt=media&token=1b178fe8-c504-412f-a186-173a1e8d5689'
 
 const NagsHeadLogo = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fnagshead%2Ficon.png?alt=media&token=5cd64ffe-402d-4a51-b882-e9c2421f52ed'
 const NagsHeadSC1 = 'https://firebasestorage.googleapis.com/v0/b/sally-1578747294813.appspot.com/o/media%2Ftoly%2Fprojects%2Fnagshead%2F1.PNG?alt=media&token=64c1fa4d-e4cc-4407-a4b6-b7a779333934'
@@ -37,6 +43,9 @@ const AboutMeProgram = (props: WindowProps) => {
     // const handleScroll = (e: UIEvent<HTMLDivElement>) => {
     //     const y = e.currentTarget.scrollTop
     // }
+
+    const [modalProjectImagesShown, setModalProjectImagesShown] = React.useState(false)
+    const [projectImages, setProjectImages] = React.useState<string[]>([])
 
     return (
         <Window
@@ -94,7 +103,7 @@ const AboutMeProgram = (props: WindowProps) => {
                                 Table ordering and payments application with a social twist where you can see where you friends are and send them gifts
                                 <br />
                                 <b>Role: </b>
-                                Co-founder
+                                Co-founder {'&'} CTO
                                 <br />
                                 <b>Requirements: </b>
                                 2 mobile apps, 2 web apps, landing page
@@ -115,6 +124,10 @@ const AboutMeProgram = (props: WindowProps) => {
                                 SallySC2,
                                 SallySC3
                             ]}
+                            showImages={() => {
+                                setModalProjectImagesShown(true)
+                                setProjectImages([SallySC4, SallySC5, SallySC5_2, SallySC6, SallySC7])
+                            }}
                             webURL={'https://sally.app'}
                         />
 
@@ -168,7 +181,7 @@ const AboutMeProgram = (props: WindowProps) => {
                         <h4>Skills</h4>
 
                         <p>Languages: <span className={styles.primary}>JavaScript, TypeScript, PHP, Visual Basic</span></p>
-                        
+
                         <p>Frameworks / Libraries: <span className={styles.primary}>React, React Native, Node.js, Redux, Context API</span></p>
 
                         <p>Backend: <span className={styles.primary}>Firebase, NoSQL, MySQL</span></p>
@@ -241,6 +254,21 @@ const AboutMeProgram = (props: WindowProps) => {
                         }
                     }}
                 />
+
+                <Modal
+                    title='Project Images'
+                    active={modalProjectImagesShown}
+                    setActive={(val) => setModalProjectImagesShown(val)}
+                >
+                    {projectImages.map((src, index) => (
+                        <img
+                            key={'project_image_' + index}
+                            src={src}
+                            className={styles.ModalProjectImage}
+                            alt={'project image ' + index}
+                        />
+                    ))}
+                </Modal>
             </div>
         </Window>
     )

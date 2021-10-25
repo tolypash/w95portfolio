@@ -175,6 +175,13 @@ section {
     align-self: center;
 }
 
+.ModalProjectImage {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: #f2f2f2;
+}
+
 @media (max-width: 1200px) {
     .Main {
         width: calc(100% - 10px);
@@ -204,10 +211,14 @@ section {
     }
 }
 
-_::-webkit-full-page-media, _:future, :root .NameContainer video {
+_::-webkit-full-page-media,
+_:future,
+:root .NameContainer video {
     display: none;
 }
 
-_::-webkit-full-page-media, _:future, :root .ProfilePic:hover {
+_::-webkit-full-page-media,
+_:future,
+:root .ProfilePic:hover {
     background: unset;
 }

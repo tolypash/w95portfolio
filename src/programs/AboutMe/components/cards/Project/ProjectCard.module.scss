@@ -13,6 +13,7 @@
     transition-duration: 0.4s;
     transition-timing-function: ease;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .Card:hover {
@@ -81,19 +82,27 @@
 
 .Links {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 12px;
     padding-left: 15px;
     z-index: 2;
+    margin-top: 10px;
 }
 
 .Links a {
     stroke: #fff;
     cursor: pointer;
+    padding: 2px 0;
 }
 
 .Links a svg {
     stroke: inherit;
+}
+
+.Links div {
+    cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -147,5 +156,9 @@
     .Screenshots img::after {
         content: '';
         min-width: 70px
+    }
+
+    .Links {
+        flex-direction: row;
     }
 }

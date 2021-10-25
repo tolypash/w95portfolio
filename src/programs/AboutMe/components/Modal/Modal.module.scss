@@ -1,0 +1,43 @@
+.ModalWrapper {
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+
+.ModalWrapper.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.Modal {
+    height: 80vh;
+    width: 65vw;
+    border-radius: 25px;
+    padding: 20px 2.5%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+}
+
+.Modal::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .Modal {
+        height: 75vh;
+        width: 90vw;
+    }
+}

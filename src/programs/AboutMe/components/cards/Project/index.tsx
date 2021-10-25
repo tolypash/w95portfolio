@@ -2,26 +2,38 @@ import React from 'react';
 
 import styles from './ProjectCard.module.scss'
 
-import { Globe } from 'react-feather';
+import { Globe, Image } from 'react-feather';
 
 interface IProps {
-    logoSrc: string,
-    name: string,
-    tech: string[],
-    desc: () => JSX.Element,
-    screenshots?: string[],
+    logoSrc: string
+    name: string
+    tech: string[]
+    desc: () => JSX.Element
+    screenshots?: string[]
     webURL?: string
+    showImages?: () => void
+    onClick?: () => void
 }
 
 const ProjectCard: React.FC<IProps> = (props) => {
 
-    return <div className={styles.Card}>
+    const style: React.CSSProperties = {}
+
+    if (props.onClick) {
+        style.cursor = 'pointer'
+    }
+
+    return <div className={styles.Card} style={style}>
         {/* REVERSED DIV! (in order for .Screenshots to be the next sibling of .Links to apply hover effect in CSS) */}
 
         <div className={styles.Links}>
             {props.webURL && <a href={props.webURL} target='_blank' rel='noreferrer'>
                 <Globe />
             </a>}
+
+            {props.showImages && <div onClick={props.showImages}>
+                <Image />
+            </div>}
         </div>
 
         <div className={styles.Screenshots}>

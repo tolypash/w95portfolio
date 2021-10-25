@@ -1,0 +1,92 @@
+@import "/src/constants/colors";
+
+.TopBar {
+    display: flex;
+    padding-left: 10px;
+    border-top: 2px solid #b3b3b3;
+}
+
+.TopBar .right {
+    width: 50px;
+    padding: 4px 0;
+    padding-right: 2px;
+    background-color: $fontColor;
+    display: flex;
+    justify-content: center;
+    border-left: 2px solid #e2e2e2;
+}
+
+.TopBar .left {
+    flex: 1;
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    border-right: 2px solid #b3b3b3;
+}
+
+.TopBar .left div {
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.TopBar .right img {
+    height: 24px;
+    align-self: center;
+}
+
+.ActionBar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.MainContainer {
+    flex: 1;
+    height: 100%;
+    max-width: 100%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    align-content: flex-start;
+}
+
+.IconButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5px;
+    padding: 3px 10px;
+}
+
+.IconButton:hover .Icon {
+    filter: none;
+}
+
+.IconButton .Icon {
+    font-size: 24px;
+    font-weight: bold;
+    height: 32px;
+    color: green;
+    filter: grayscale(100%);
+}
+
+.IconButton img {
+    height: 24px;
+}
+
+.IconButton .Label {
+    font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+    .IconButton img {
+        height: 20px;
+    }
+
+    .IconButton .Label {
+        font-size: 16px;
+    }
+}

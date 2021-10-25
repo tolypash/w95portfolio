@@ -1,7 +1,8 @@
 import IEIcon from '../assets/icons/msie.png'
 import NotepadIcon from '../assets/icons/notepad.png'
 import SettingsIcon from '../assets/icons/settings.png'
-import AboutMeIcon from '../assets/icons/aboutme.png';
+import AboutMeIcon from '../assets/icons/aboutme.png'
+import ExplorerIcon from '../assets/icons/directory.png'
 
 const programs: {
     [slug: string]: {
@@ -29,6 +30,10 @@ const programs: {
     aboutme: {
         name: 'About Me',
         icon: AboutMeIcon
+    },
+    explorer: {
+        name: "Explorer",
+        icon: ExplorerIcon
     }
 }
 

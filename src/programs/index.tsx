@@ -4,7 +4,7 @@ import NotepadProgram from './Notepad';
 import SettingsProgram from './Settings';
 import InternetExplorerProgram from './IE';
 import AboutMeProgram from './AboutMe';
-import ExecutableProgram from './Executable';
+import Explorer from './Explorer';
 
 import { Window } from '../Redux/reducers/windows';
 
@@ -18,8 +18,8 @@ export default function ProgramSelector(props: Window & { data?: any }) {
             return <InternetExplorerProgram {...props} />
         case 'aboutme':
             return <AboutMeProgram {...props} />
-        case 'exe':
-            return <ExecutableProgram {...props} />
+        case 'explorer':
+            return <Explorer {...props} />
     }
 
     return null

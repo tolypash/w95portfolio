@@ -41,7 +41,6 @@ const InternetExplorerProgram = (props: WindowProps) => {
         }
 
         const addressUrl = iframeRef.current.src
-        console.log(iframeRef.current.src)
 
         setAddressInput(addressUrl)
         setUrl(addressUrl)

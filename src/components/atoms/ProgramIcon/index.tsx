@@ -6,8 +6,11 @@ import styles from './ProgramIcon.module.scss';
 
 import { File } from '../../../Redux/reducers/storage';
 
+interface IProps {
+    style?: React.CSSProperties
+}
 
-const ProgramIcon = (props: React.HTMLProps<HTMLDivElement> & File) => {
+const ProgramIcon :React.FC<React.HTMLProps<HTMLDivElement> & File & IProps> = props => {
     const dispatch = useAppDispatch()
     const isMobile = useIsMobile()
 

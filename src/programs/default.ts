@@ -3,6 +3,7 @@ import NotepadIcon from '../assets/icons/notepad.png'
 import SettingsIcon from '../assets/icons/settings.png'
 import AboutMeIcon from '../assets/icons/aboutme.png'
 import ExplorerIcon from '../assets/icons/directory.png'
+import TicTacToeIcon from '../assets/icons/tic-tac-toe.png';
 
 const programs: {
     [slug: string]: {
@@ -34,6 +35,10 @@ const programs: {
     explorer: {
         name: "Explorer",
         icon: ExplorerIcon
+    },
+    tictactoe: {
+        name: "Tic Tac Toe",
+        icon: TicTacToeIcon
     }
 }
 

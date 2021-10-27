@@ -13,6 +13,8 @@ import NotepadIcon from '../../../../../assets/icons/notepad.png';
 import IEIcon from '../../../../../assets/icons/msie.png';
 import AboutMeIcon from '../../../../../assets/icons/aboutme-small.png';
 
+import TicTacToeIcon from '../../../../../assets/icons/tic-tac-toe.png';
+
 const StartBar: React.FC = (props) => {
     const history = useHistory()
     const dispatch = useAppDispatch();
@@ -42,6 +44,11 @@ const StartBar: React.FC = (props) => {
                     onClick: () => run('ie')
                 }
             ]
+        },
+        {
+            label: 'Tic Tac Toe',
+            icon: TicTacToeIcon,
+            onClick: () => run('tictactoe')
         },
         {
             label: 'About Me',

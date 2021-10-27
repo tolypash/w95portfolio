@@ -6,6 +6,8 @@ import InternetExplorerProgram from './IE';
 import AboutMeProgram from './AboutMe';
 import Explorer from './Explorer';
 
+import TicTacToe from './games/TicTacToe';
+
 import { Window } from '../Redux/reducers/windows';
 
 export default function ProgramSelector(props: Window & { data?: any }) {
@@ -20,6 +22,8 @@ export default function ProgramSelector(props: Window & { data?: any }) {
             return <AboutMeProgram {...props} />
         case 'explorer':
             return <Explorer {...props} />
+        case 'tictactoe':
+            return <TicTacToe {...props} />
     }
 
     return null

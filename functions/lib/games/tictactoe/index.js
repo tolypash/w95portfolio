@@ -112,7 +112,6 @@ function checkIfGridFilled(grid) {
 function checkIfWon(grid, player_name) {
     let won = true;
     const n = grid.length;
-    console.log(JSON.stringify(grid));
     // horizontal
     for (let i = 0; i < n; i++) {
         won = true;
@@ -126,7 +125,6 @@ function checkIfWon(grid, player_name) {
             return true;
         }
     }
-    console.log('passed1');
     // vertical
     for (let i = 0; i < n; i++) {
         won = true;
@@ -140,7 +138,6 @@ function checkIfWon(grid, player_name) {
             return true;
         }
     }
-    console.log('passed2');
     // diagonal
     won = true;
     for (let i = 0; i < n; i++) {

@@ -94,10 +94,7 @@ const TicTacToe: React.FC<WindowProps> = (props) => {
   };
 
   const markGrid = async (x: number, y: number) => {
-    console.log(x)
-    console.log(y)
-
-    if (game?.status === 'end' || game?.status === 'waiting') {
+    if (game?.status !== 'in-progress') {
       return
     }
 

@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase } from 'firebase/database';
-import {getFunctions, httpsCallable} from 'firebase/functions';
+import { getDatabase, ref } from 'firebase/database';
+import { getFunctions, httpsCallable } from 'firebase/functions';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,7 +19,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app)
-const functions = getFunctions(app)
 
-export { db, functions,  httpsCallable };
+const db = getDatabase(app)
+const dbRef = (path: string) => ref(db, path)
+
+const functions = getFunctions(app)
+const fireFunction = (name: string) => httpsCallable(functions, name)
+
+export { functions, fireFunction, dbRef };

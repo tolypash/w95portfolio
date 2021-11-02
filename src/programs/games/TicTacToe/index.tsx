@@ -8,13 +8,10 @@ import { Window as WindowProps } from "../../../Redux/reducers/windows";
 import TextField from "../../../components/atoms/TextField";
 import Button from "../../../components/atoms/Button";
 
-import { db, functions, httpsCallable } from '../../../firebase';
+import { dbRef, fireFunction } from '../../../firebase';
+import { onValue } from 'firebase/database';
 
-/*
-
-
-
-*/
+import styles from './TicTacToe.module.scss'
 
 interface IGame {
   id: string;
@@ -29,40 +26,65 @@ interface IGame {
 }
 
 const TicTacToe: React.FC<WindowProps> = (props) => {
-  // const testGame: IGame = {
-  //   id: "12345",
-  //   player_started: "player1",
-  //   player_turn: "player1",
-  //   grid: [
-  //     [0, 0, 0],
-  //     [0, 0, 0],
-  //     [0, 0, 0],
-  //   ],
-  //   status_message: "player1 won.",
-  //   players: {
-  //     player1: "O",
-  //     player2: "X",
-  //   },
-  //   status: "in-progress",
-  // };
-
   const dispatch = useAppDispatch();
   const isMobile = useIsMobile();
   const [game, setGame] = useState<IGame | null>(null);
-  const gameId = useRef<string>();
+  const gameID = useRef<string>();
   const playerName = useRef<string>();
 
-  const joinGame = () => {
-    const func = httpsCallable(functions, 'games-tictactoe-joinGame')
+  const players = game ? Object.keys(game?.players) : [];
+
+  React.useEffect(() => {
+
+  }, [])
+
+  const joinGame = async () => {
+    if (!playerName.current) {
+      alert("Please input your name")
+      return
+    }
+
+    const func = fireFunction('games-tictactoe-joinGame')
+
+    const res: { id: string, game: IGame } = await func({ id: gameID.current, name: playerName.current }).then((res: any) => res.data);
+
+    console.log(res)
+    setGame(res.game);
   };
 
   const createGame = async () => {
-    const func = httpsCallable(functions, 'games-tictactoe-createGame')
+    if (!playerName.current) {
+      alert("Please input your name")
+      return
+    }
 
-    const res = await func({ name: playerName.current }).then(res => res.data);
+    const func = fireFunction('games-tictactoe-createGame')
 
-    console.log(res)
+    const res: { data: IGame } = await func({ name: playerName.current }).then((res: any) => res.data);
+
+    setGame(res.data)
+    listenToGame(res.data)
   };
+
+  const markGrid = async () => {
+    if (game?.player_turn !== playerName.current) {
+
+    }
+
+    const func = fireFunction('games-tictactoe-markGrid')
+  }
+
+  const listenToGame = async (game: IGame) => {
+    const gameRef = dbRef(`games/tictactoe/${game.id}`)
+
+    onValue(gameRef, (snapshot) => {
+      setGame(snapshot.val())
+    })
+  }
+
+  const restartGame = async () => {
+    const func = fireFunction('games-tictactoe-restart')
+  }
 
   return (
     <Window
@@ -76,37 +98,41 @@ const TicTacToe: React.FC<WindowProps> = (props) => {
       }}
     >
       {!game ? (
-        <div>
-          <TextField
-            id="game-id"
-            onChangeText={(text: string) => {
-              gameId.current = text;
-            }}
-          ></TextField>
+        <div className={styles.Container}>
           <TextField
             id="player-name"
+            placeholder="Your Name"
             onChangeText={(text: string) => {
               playerName.current = text;
             }}
-          ></TextField>
-
-          <Button onClick={joinGame}>Join Game</Button>
-
-          <p>OR</p>
+          />
 
           <Button onClick={createGame}>Create Game</Button>
+
+          <p>- OR -</p>
+
+          <TextField
+            id="game-id"
+            placeholder="Game ID"
+            onChangeText={(text: string) => {
+              gameID.current = text;
+            }}
+          />
+
+          <Button onClick={joinGame}>Join Game</Button>
         </div>
       ) : (
-        <div>
-          <p>{game.id}</p>
+        <div className={styles.Container}>
+          <p>Game ID: {game.id}</p>
+          <p>{players[0] + ' vs ' + (players[1] || '?')}</p>
           {game.grid.map((row, rowIndex) => {
             return (
-              <div style={{ display: "flex" }}>
+              <div key={'row' + rowIndex} style={{ display: "flex" }}>
                 {row.map((cell, cellIndex) => {
-                  const markGrid = () => { };
                   return (
                     <div
-                      style={{ height: 50, width: 50, borderWidth: 1, borderColor: "#000", borderStyle: "dashed" }}
+                      key={'row' + rowIndex + 'cell' + cellIndex}
+                      className={styles.Cell}
                       onClick={markGrid}
                     >
                       {cell !== 0 ? game.players[cell] : null}
@@ -116,6 +142,8 @@ const TicTacToe: React.FC<WindowProps> = (props) => {
               </div>
             );
           })}
+
+          {(players.length > 1 && game.status === 'end') && <Button onClick={restartGame}>Restart</Button>}
         </div>
       )}
     </Window>

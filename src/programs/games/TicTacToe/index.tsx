@@ -8,6 +8,8 @@ import { Window as WindowProps } from "../../../Redux/reducers/windows";
 import TextField from "../../../components/atoms/TextField";
 import Button from "../../../components/atoms/Button";
 
+import { db, functions, httpsCallable } from '../../../firebase';
+
 /*
 
 
@@ -27,31 +29,40 @@ interface IGame {
 }
 
 const TicTacToe: React.FC<WindowProps> = (props) => {
-  const testGame: IGame = {
-    id: "12345",
-    player_started: "player1",
-    player_turn: "player1",
-    grid: [
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
-    ],
-    status_message: "player1 won.",
-    players: {
-      player1: "O",
-      player2: "X",
-    },
-    status: "in-progress",
-  };
+  // const testGame: IGame = {
+  //   id: "12345",
+  //   player_started: "player1",
+  //   player_turn: "player1",
+  //   grid: [
+  //     [0, 0, 0],
+  //     [0, 0, 0],
+  //     [0, 0, 0],
+  //   ],
+  //   status_message: "player1 won.",
+  //   players: {
+  //     player1: "O",
+  //     player2: "X",
+  //   },
+  //   status: "in-progress",
+  // };
 
   const dispatch = useAppDispatch();
   const isMobile = useIsMobile();
-  const [game, setGame] = useState<IGame>(testGame);
+  const [game, setGame] = useState<IGame | null>(null);
   const gameId = useRef<string>();
   const playerName = useRef<string>();
 
-  const joinGame = () => {};
-  const createGame = () => {};
+  const joinGame = () => {
+    const func = httpsCallable(functions, 'games-tictactoe-joinGame')
+  };
+
+  const createGame = async () => {
+    const func = httpsCallable(functions, 'games-tictactoe-createGame')
+
+    const res = await func({ name: playerName.current }).then(res => res.data);
+
+    console.log(res)
+  };
 
   return (
     <Window
@@ -92,7 +103,7 @@ const TicTacToe: React.FC<WindowProps> = (props) => {
             return (
               <div style={{ display: "flex" }}>
                 {row.map((cell, cellIndex) => {
-                  const markGrid = () => {};
+                  const markGrid = () => { };
                   return (
                     <div
                       style={{ height: 50, width: 50, borderWidth: 1, borderColor: "#000", borderStyle: "dashed" }}

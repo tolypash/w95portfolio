@@ -137,6 +137,7 @@ const TicTacToe: React.FC<WindowProps> = (props) => {
     >
       {!game ? (
         <div className={styles.Container} style={{ marginTop: 30 }}>
+          <h3>Tic Tac Toe Multiplayer</h3>
           <TextField
             id="player-name"
             placeholder="Your Name"

@@ -20,7 +20,8 @@ This website was built with **React** using:
 * Working Internet Explorer (CORS enabled websites only)
 * Settings: Change your background color / image
 * About Me program
-* Mini-games coming soon...
+* Working online multiplayer Tic-Tac-Toe!
+* More mini-games coming soon...
 
 ## How to run
 

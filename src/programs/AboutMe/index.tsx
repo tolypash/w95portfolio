@@ -182,13 +182,13 @@ const AboutMeProgram = (props: WindowProps) => {
 
                         <p>Languages: <span className={styles.primary}>JavaScript, TypeScript, PHP, Visual Basic</span></p>
 
-                        <p>Frameworks / Libraries: <span className={styles.primary}>React, React Native, Node.js, Redux, Context API</span></p>
+                        <p>Frameworks / Libraries: <span className={styles.primary}>React, React Native, Node.js, Redux, Context API, JEST</span></p>
 
                         <p>Backend: <span className={styles.primary}>Firebase, NoSQL, MySQL</span></p>
 
-                        <p>Software: <span className={styles.primary}>Git, VS Code</span></p>
+                        <p>Software: <span className={styles.primary}>Git, VS Code, JIRA</span></p>
 
-                        <p>What I'm learning right now: <span className={styles.primary}>MongoDB, JEST</span></p>
+                        <p>What I'm learning right now: <span className={styles.primary}>Go lang</span></p>
 
                         <p>I'm half Russian, half German, born in Germany and grew up in beautiful Cyprus.<br />
                             I speak English, Greek and working on my Russian :3</p>
